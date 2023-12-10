@@ -1,22 +1,21 @@
 import React from "react";
 
-import {StyleSheet, Text, TextArea, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TextArea, TextInput, View} from "react-native";
 
 
 function PodgladWizytyEkran(){
     return(
         <View style={styles.container}>
-            <h1>10 - 12</h1>
+            <Text>10 - 12</Text>
             <View style={styles.hr}/>
-            <Text style={style.titletext}> Dane Klienta</Text>
-            <Text style={style.textstyle}> Dane Klienta</Text>
-            <Text style={style.textstyle}> Dane Klienta</Text>
-            <Text style={style.textstyle}> Dane Klienta</Text>
-            <Text style={style.titletext}> Opis wizyty</Text>
-            <TextArea style={style.container}>
+            <Text style={styles.titletext}>Dane Klienta</Text>
+            <Text style={styles.textstyle}>Dane Klienta</Text>
+            <Text style={styles.textstyle}>Dane Klienta</Text>
+            <Text style={styles.textstyle}>Dane Klienta</Text>
+            <Text style={styles.titletext}>Opis wizyty</Text>
+            <TextInput style={styles.container}>
                 Ciągły tekst który ma ciągłość
-
-            </TextArea>
+            </TextInput>
         </View>
     )
 }
