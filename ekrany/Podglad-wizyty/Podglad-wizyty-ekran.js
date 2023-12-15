@@ -22,15 +22,19 @@ function PodgladWizytyEkran() {
                 facilisis mattis nulla, ut eleifend lacus mattis ac. Pellentesque sed neque tortor. Pellentesque luctus
                 vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
             </Text>
-            <TouchableOpacity style={styles.edycjabutton} activeOpacity={0.7}>
-                <Text style={styles.textstyle}>Edytuj wizytę</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.usuwaniebutton} activeOpacity={0.7}>
-                <Text style={styles.textstyle}>Anuluj wizytę</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.rozpocznijbutton} activeOpacity={0.7}>
-                <Text style={styles.textstyle}>Rozpocznij wizytę</Text>
-            </TouchableOpacity>
+            <View style={styles.buttoncontainer}>
+                <View style={styles.buttoncontainerright}>
+                    <TouchableOpacity style={styles.edycjabutton} activeOpacity={0.7}>
+                        <Text style={styles.textstyle}>Edytuj wizytę</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.usuwaniebutton} activeOpacity={0.7}>
+                        <Text style={styles.textstyle}>Anuluj wizytę</Text>
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.rozpocznijbutton} activeOpacity={0.7}>
+                    <Text style={styles.textstyle}>Rozpocznij wizytę</Text>
+                </TouchableOpacity>
+            </View>
 
         </View>
     )
@@ -95,5 +99,13 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         alignItems: "left",
         justifyContent: "left",
+    },
+    buttoncontainerright: {
+        flexDirection: "column",
+        alignItems: 'right',
+    },
+    buttoncontainer: {
+        flexDirection: "row",
+        alignItems: "center",
     },
 })
