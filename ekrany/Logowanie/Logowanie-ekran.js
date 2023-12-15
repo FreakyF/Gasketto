@@ -1,17 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 
-function LogowanieEkran() {
+function LogowanieEkran({navigation}) {
+    const [login, setLogin] = useState();
+    const [password, setPassword] = useState();
+    const [warning, setWarning] = useState();
+
+    const validateLogin = (login, password) => {
+        if (login === password) {
+            setWarning(false);
+            navigation.navigate("Wizyty");
+        } else {
+            setWarning(true);
+        }
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.titletext}>Logowanie</Text>
             <Text style={styles.textinputlabel}>Login</Text>
-            <TextInput style={styles.textinput}></TextInput>
+            <TextInput style={styles.textinput} onChangeText={newText => setLogin(newText)}/>
             <Text style={styles.textinputlabel}>Hasło</Text>
-            <TextInput style={styles.textinput}></TextInput>
-            <TouchableOpacity style={styles.logowaniebutton} activeOpacity={0.7}>
-                    <Text style={styles.logowanietext}>Zaloguj</Text>
+            <TextInput style={styles.textinput} onChangeText={newText => setPassword(newText)}/>
+            <TouchableOpacity style={styles.logowaniebutton} activeOpacity={0.7} onPress={()=>validateLogin(login, password)}>
+                <Text style={styles.logowanietext}>Zaloguj</Text>
             </TouchableOpacity>
+            {warning ? <Text>Nie poprawny login lub hasło</Text> : null}
         </View>
     )
 }
