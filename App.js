@@ -5,18 +5,15 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import LogowanieEkran from "./ekrany/Logowanie/Logowanie-ekran";
 import nadchodzaceWyzityEkran from "./ekrany/nadchodzoace-wizyty/nadchodzace-wyzity-ekran";
+import PodgladWizytyEkran from "./ekrany/Podglad-wizyty/Podglad-wizyty-ekran";
 
 export default function App() {
     const Stack = createNativeStackNavigator();
 
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Login" component={LogowanieEkran} options={{ headerShown: false }}/>
-                <Stack.Screen name="Wizyty" component={nadchodzaceWyzityEkran} options={{ headerShown: false }}
-                />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <View style={styles.container}>
+            <PodgladWizytyEkran/>
+        </View>
     );
 }
 

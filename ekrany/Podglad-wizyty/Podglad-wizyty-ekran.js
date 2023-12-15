@@ -3,10 +3,10 @@ import React from "react";
 import {StyleSheet, Text, TextArea, TextInput, TouchableOpacity, View} from "react-native";
 
 
-function PodgladWizytyEkran(){
-    return(
+function PodgladWizytyEkran() {
+    return (
         <View style={styles.container}>
-            <Text style={styles.titletext}>10:00 - 12:00</Text>
+            <Text style={styles.titletext}>08:00 - 10:00</Text>
             <View style={styles.hr}/>
             <Text style={styles.minititletext}>Dane Klienta</Text>
             <Text style={styles.textstyle}>Imię i nazwisko</Text>
@@ -15,9 +15,13 @@ function PodgladWizytyEkran(){
             <Text style={styles.textstyle}>Adres2</Text>
             <View style={styles.hr}/>
             <Text style={styles.minititletext}>Opis wizyty</Text>
-            <TextInput style={styles.textcontainer}>
-                Ciągły tekst który ma ciągłość
-            </TextInput>
+            <Text style={styles.textcontainer}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum at mi eu semper. Sed odio
+                nulla, molestie eu accumsan a, dictum eu nibh. Vivamus commodo dolor nec lectus euismod, ac egestas eros
+                tempus. Duis bibendum aliquet commodo. Fusce suscipit porta elementum. Donec ac rutrum mi. Proin
+                facilisis mattis nulla, ut eleifend lacus mattis ac. Pellentesque sed neque tortor. Pellentesque luctus
+                vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
+            </Text>
             <TouchableOpacity style={styles.edycjabutton} activeOpacity={0.7}>
                 <Text style={styles.textstyle}>Edytuj wizytę</Text>
             </TouchableOpacity>
@@ -44,6 +48,8 @@ const styles = StyleSheet.create({
     },
     textcontainer: {
         paddingTop: 20,
+        flexWrap: 'wrap',
+        textAlign: "center",
     },
     hr: {
         backgroundColor: '#aaa',
@@ -59,13 +65,13 @@ const styles = StyleSheet.create({
         marginBottom: 120,
         textAlign: "left",
     },
-    minititletext:{
+    minititletext: {
         fontSize: 15,
         color: '#515761',
     },
     edycjabutton: {
         margin: 10,
-        backgroundColor: '#c18efa',
+        backgroundColor: '#E8DEF8',
         paddingVertical: 10,
         paddingHorizontal: 24,
         borderRadius: 25,
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
     },
     usuwaniebutton: {
         margin: 10,
-        backgroundColor: '#f26676',
+        backgroundColor: '#EC928E',
         paddingVertical: 10,
         paddingHorizontal: 24,
         borderRadius: 25,
@@ -83,7 +89,7 @@ const styles = StyleSheet.create({
     },
     rozpocznijbutton: {
         margin: 10,
-        backgroundColor: '#7f23db',
+        backgroundColor: '#6750A4',
         paddingVertical: 10,
         paddingHorizontal: 24,
         borderRadius: 25,
