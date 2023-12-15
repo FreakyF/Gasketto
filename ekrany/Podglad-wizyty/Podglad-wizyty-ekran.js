@@ -15,6 +15,7 @@ function PodgladWizytyEkran() {
             <Text style={styles.textstyle}>Adres2</Text>
             <View style={styles.hr}/>
             <Text style={styles.minititletext}>Opis wizyty</Text>
+            <View style={styles.textview}>
             <Text style={styles.textcontainer}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum at mi eu semper. Sed odio
                 nulla, molestie eu accumsan a, dictum eu nibh. Vivamus commodo dolor nec lectus euismod, ac egestas eros
@@ -22,6 +23,7 @@ function PodgladWizytyEkran() {
                 facilisis mattis nulla, ut eleifend lacus mattis ac. Pellentesque sed neque tortor. Pellentesque luctus
                 vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
             </Text>
+            </View>
                 <View style={styles.buttoncontainerright}>
                     <TouchableOpacity style={styles.edycjabutton} activeOpacity={0.7}>
                         <Text style={styles.textstyle}>Edytuj wizytę</Text>
@@ -48,11 +50,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 50,
-    },
-    textcontainer: {
-        paddingTop: 20,
-        flexWrap: 'wrap',
-        textAlign: "center",
     },
     hr: {
         backgroundColor: '#aaa',
@@ -101,6 +98,7 @@ const styles = StyleSheet.create({
         justifyContent: "left",
     },
     buttoncontainerright: {
+        maxWidth: '75%',
         alignSelf: 'flex-start',
         flexDirection: "column",
         alignItems: 'right',
@@ -109,9 +107,13 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     buttoncontainer: {
+        maxWidth: '75%',
         alignSelf: 'flex-end',
         flex: 0,
         flexDirection: "row",
         alignItems: "center",
     },
+    textview: {
+        maxWidth: '75%',
+    }
 })
