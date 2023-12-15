@@ -12,8 +12,9 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Login" component={LogowanieEkran}/>
-                <Stack.Screen name="Wizyty" component={nadchodzaceWyzityEkran}/>
+                <Stack.Screen name="Login" component={LogowanieEkran} options={{ headerShown: false }}/>
+                <Stack.Screen name="Wizyty" component={nadchodzaceWyzityEkran} options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
