@@ -22,7 +22,6 @@ function PodgladWizytyEkran() {
                 facilisis mattis nulla, ut eleifend lacus mattis ac. Pellentesque sed neque tortor. Pellentesque luctus
                 vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
             </Text>
-            <View style={styles.buttoncontainer}>
                 <View style={styles.buttoncontainerright}>
                     <TouchableOpacity style={styles.edycjabutton} activeOpacity={0.7}>
                         <Text style={styles.textstyle}>Edytuj wizytę</Text>
@@ -31,11 +30,11 @@ function PodgladWizytyEkran() {
                         <Text style={styles.textstyle}>Anuluj wizytę</Text>
                     </TouchableOpacity>
                 </View>
+            <View style={styles.buttoncontainer}>
                 <TouchableOpacity style={styles.rozpocznijbutton} activeOpacity={0.7}>
-                    <Text style={styles.textstyle}>Rozpocznij wizytę</Text>
+                    <Text style={styles.buttontext}>Rozpocznij wizytę</Text>
                 </TouchableOpacity>
             </View>
-
         </View>
     )
 }
@@ -94,6 +93,7 @@ const styles = StyleSheet.create({
     rozpocznijbutton: {
         margin: 10,
         backgroundColor: '#6750A4',
+        color: '#fff',
         paddingVertical: 10,
         paddingHorizontal: 24,
         borderRadius: 25,
@@ -101,10 +101,16 @@ const styles = StyleSheet.create({
         justifyContent: "left",
     },
     buttoncontainerright: {
+        alignSelf: 'flex-start',
         flexDirection: "column",
         alignItems: 'right',
     },
+    buttontext: {
+        color: '#fff'
+    },
     buttoncontainer: {
+        alignSelf: 'flex-end',
+        flex: 0,
         flexDirection: "row",
         alignItems: "center",
     },
