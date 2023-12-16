@@ -9,7 +9,7 @@ function LogowanieEkran({navigation}) {
     const validateLogin = (login, password) => {
         if (login === password) {
             setWarning(false);
-            navigation.navigate("Wizyty");
+            navigation.navigate("Home");
         } else {
             setWarning(true);
         }

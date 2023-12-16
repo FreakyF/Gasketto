@@ -4,7 +4,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import LogowanieEkran from "./ekrany/Logowanie/Logowanie-ekran";
-import nadchodzaceWyzityEkran from "./ekrany/nadchodzoace-wizyty/nadchodzace-wyzity-ekran";
+import Home from "./ekrany/Home";
 
 export default function App() {
     const Stack = createNativeStackNavigator();
@@ -13,8 +13,7 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Login" component={LogowanieEkran} options={{ headerShown: false }}/>
-                <Stack.Screen name="Wizyty" component={nadchodzaceWyzityEkran} options={{ headerShown: false }}
-                />
+                <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -2,22 +2,22 @@ import React from "react";
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import Wizyta from "./nadchodzace-wizyty-wizyta";
 
-function LogowanieEkran() {
+function NadchodzaceWyzityEkran({navigation}) {
     return (
         <View style={styles.container}>
             <Text style={styles.titletext}>Nadchodzące wizyty</Text>
             <View style={styles.hr}/>
             <Text style={styles.hrlabel}>Dzisiaj</Text>
-            <Wizyta/>
-            <Wizyta/>
-            <Wizyta/>
-            <Wizyta/>
-            <Wizyta/>
+            <Wizyta navigation={navigation}/>
+            <Wizyta navigation={navigation}/>
+            <Wizyta navigation={navigation}/>
+            <Wizyta navigation={navigation}/>
+            <Wizyta navigation={navigation}/>
         </View>
     )
 }
 
-export default LogowanieEkran;
+export default NadchodzaceWyzityEkran;
 
 const styles = StyleSheet.create({
     container: {

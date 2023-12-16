@@ -1,12 +1,16 @@
 import React from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-function Wizyta() {
+function Wizyta({navigation}) {
+    const goToWizyta = () => {
+        navigation.navigate("Wizyta");
+    }
+
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={() => goToWizyta()}>
             <Text style={[styles.text, styles.bold]}>Jan Kowalski</Text>
             <Text style={styles.text}>8:00 - 10:00</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
