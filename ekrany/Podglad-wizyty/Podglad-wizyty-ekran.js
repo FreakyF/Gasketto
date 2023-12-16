@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         height: 1,
     },
     textstyle: {
-        fontsize: 20,
+        // fontsize: 20, //TODO znaleźć przyczyne błędu
         color: '#000',
     },
     titletext: {
