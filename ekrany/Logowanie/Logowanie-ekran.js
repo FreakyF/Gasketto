@@ -39,10 +39,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    titletext: {
-        fontSize: 45,
-        marginBottom: 120,
-    },
     textinputlabel: {
         minWidth: '50%',
         fontSize: 10,
