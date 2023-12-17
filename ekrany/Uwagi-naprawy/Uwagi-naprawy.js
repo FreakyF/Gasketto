@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image} from 'react-native';
+import Tytul from "../../ui/Tytul";
+import ButtonContainer from "../../ui/ButtonContainer";
+import PowrotButton from "../../ui/PowrotButton";
+import DalejButton from "../../ui/DalejButton";
 
 export default function UwagiNaprawy({navigation}) {
     const zapisz = () => {
@@ -16,7 +20,7 @@ export default function UwagiNaprawy({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.screenTitle}>Uwagi</Text>
+            <Tytul text={"Uwagi"}/>
 
             <ScrollView horizontal style={styles.imageSlider} showsHorizontalScrollIndicator={false}>
                 {images.map((image, index) => (
@@ -26,14 +30,10 @@ export default function UwagiNaprawy({navigation}) {
 
             <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu"/>
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7} onPress={() => usun()}>
-                    <Text>Usuń</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7} onPress={() => zapisz()}>
-                    <Text style={styles.buttonRightText}>Zapisz</Text>
-                </TouchableOpacity>
-            </View>
+            <ButtonContainer>
+                <PowrotButton text={"Usuń"} action={usun}/>
+                <DalejButton text={"Zapisz"} action={zapisz}/>
+            </ButtonContainer>
         </View>
     );
 }
@@ -44,13 +44,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    screenTitle: {
-        fontFamily: 'Roboto',
-        fontSize: 45,
-        lineHeight: 52,
-        marginTop: 40,
-        marginBottom: 50,
     },
     imageSlider: {
         marginTop: 20,
@@ -74,44 +67,6 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         width: 350,
         height: 250,
-    },
-    switchContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 10,
-        width: 204,
-    },
-    switchLabel: {
-        fontFamily: 'Roboto',
-        fontSize: 16,
-        lineHeight: 52,
-        marginBottom: 10,
-        marginRight: "auto"
-    },
-    buttonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 30,
-        width: 350,
-        marginBottom: 30
-    },
-    buttonLeft: {
-        backgroundColor: '#EC928E',
-        paddingVertical: 10,
-        paddingHorizontal: 30,
-        borderRadius: 25,
-        textAlign: 'right',
-        flex: 0,
-    },
-    buttonRight: {
-        backgroundColor: '#6750a4',
-        paddingVertical: 10,
-        paddingHorizontal: 30,
-        borderRadius: 25,
-        textAlign: 'left',
-        flex: 0,
     },
     buttonRightText: {
         color: 'white',

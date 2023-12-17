@@ -1,5 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import KontenerNaprawy from "./Kontener-naprawy";
+import Tytul from "../../ui/Tytul";
 
 export default function PodgladNaprawyEkran({navigation}) {
     const zakaczNaprawe = () => {
@@ -8,7 +9,7 @@ export default function PodgladNaprawyEkran({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.screenTitle}>SCI 6174E</Text>
+            <Tytul text={"SCI 6174E"}/>
             <View style={styles.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
