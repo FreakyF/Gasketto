@@ -1,15 +1,15 @@
+import 'react-native-gesture-handler'
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import NadchodzaceWyzityEkran from "./nadchodzoace-wizyty/nadchodzace-wyzity-ekran";
-import {NavigationContainer} from "@react-navigation/native";
 import Nadchodzace_wizyty_stack from "./nadchodzoace-wizyty/nadchodzace-wizyty-stack";
+import Nadchodzace_naprawy_stack from "./nadchodzoace-naprawy/nadchodzace-naprawy-stack";
 
 function Home() {
     const Drawer = createDrawerNavigator();
 
     return (
-            <Drawer.Navigator initialRouteName="Nadchodzace wizyty">
-                <Drawer.Screen name="Nadchodzace wizyty" component={Nadchodzace_wizyty_stack}/>
-                <Drawer.Screen name="Nadchodzace naprawy" component={Nadchodzace_wizyty_stack}/>
+            <Drawer.Navigator initialRouteName="Nadchodzace wizyty" screenOptions={{swipeEdgeWidth: 100}}>
+                <Drawer.Screen name="Wizyty" component={Nadchodzace_wizyty_stack}/>
+                <Drawer.Screen name="Naprawy" component={Nadchodzace_naprawy_stack}/>
             </Drawer.Navigator>
     )
 }
