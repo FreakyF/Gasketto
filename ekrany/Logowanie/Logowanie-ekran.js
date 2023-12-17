@@ -38,31 +38,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    textinputlabel: {
-        minWidth: '50%',
-        fontSize: 10,
-        paddingHorizontal: 10,
-        paddingVertical: 2,
-        color: '#000',
-    },
-    textinput: {
-        borderWidth: 1,
-        borderColor: '#000',
-        marginBottom: 10,
-        minWidth: '50%',
-        padding: 10,
-        borderRadius: 10,
-    },
-    logowaniebutton: {
-        margin: 10,
-        backgroundColor: '#6750a4',
-        paddingVertical: 10,
-        paddingHorizontal: 24,
-        borderRadius: 25,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    logowanietext: {
-        color: '#fff'
-    }
 });
