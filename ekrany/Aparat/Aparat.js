@@ -1,28 +1,32 @@
 import {StyleSheet, Text, TouchableOpacity, View, Image, Dimensions} from 'react-native';
+import ButtonContainer from "../../ui/ButtonContainer";
+import PowrotButton from "../../ui/PowrotButton";
+import DalejButton from "../../ui/DalejButton";
 
-export default function Aparat() {
+export default function Aparat({navigation}) {
+    const dalej = () => {
+        navigation.goBack();
+    }
+
+    const anuluj = () => {
+        navigation.goBack();
+    }
+
     return (
         <View style={styles.container}>
-
             <Image
                 source={require('./Leon.png')}
                 style={{width: 350, height: 616, marginTop: 30}}
             />
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonCancel} activeOpacity={0.7}>
-                    <Text>Anuluj</Text>
-                </TouchableOpacity>
-
+            <ButtonContainer>
+                <PowrotButton text={"Anuluj"} action={anuluj}/>
                 <TouchableOpacity style={styles.button}>
                     <View style={styles.buttonInner}>
                     </View>
                 </TouchableOpacity>
-
-                <TouchableOpacity style={styles.buttonAdd} activeOpacity={0.7}>
-                    <Text style={styles.buttonAddText}>Dodaj</Text>
-                </TouchableOpacity>
-            </View>
+                <DalejButton text={"Dodaj"} action={dalej}/>
+            </ButtonContainer>
         </View>
     );
 }

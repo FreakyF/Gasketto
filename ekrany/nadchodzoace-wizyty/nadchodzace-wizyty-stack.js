@@ -6,6 +6,7 @@ import NadchodzaceWyzityEkran from "./nadchodzace-wyzity-ekran";
 import podgladWizytyEkran from "../Podglad-wizyty/Podglad-wizyty-ekran";
 import DanePojazduEkran from "../Dane-pojazdu/Dane-pojazdu-ekran";
 import StanPojazdu from "../Stan-pojazdu/Stan-pojazdu";
+import Aparat from "../Aparat/Aparat";
 
 export default function Nadchodzace_wizyty_stack() {
     const Stack = createNativeStackNavigator();
@@ -16,6 +17,7 @@ export default function Nadchodzace_wizyty_stack() {
             <Stack.Screen name="Wizyta" component={podgladWizytyEkran} options={{headerShown: false}}/>
             <Stack.Screen name="Dane pojazdu" component={DanePojazduEkran} options={{headerShown: false}}/>
             <Stack.Screen name="Stan pojazdu" component={StanPojazdu} options={{headerShown: false}}/>
+            <Stack.Screen name="Aparat" component={Aparat} options={{headerShown: false}}/>
         </Stack.Navigator>
     );
 }

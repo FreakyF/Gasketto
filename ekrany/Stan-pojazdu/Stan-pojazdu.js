@@ -27,7 +27,7 @@ export default function StanPojazdu({navigation}) {
         <View style={styles.container}>
             <Tytul text={"Stan pojazdu"}/>
 
-            <Karuzela images={images}/>
+            <Karuzela images={images} navigation={navigation}/>
 
             <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu" />
 
