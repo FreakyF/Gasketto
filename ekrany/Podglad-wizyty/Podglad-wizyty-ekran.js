@@ -62,59 +62,6 @@ const styles = StyleSheet.create({
         // fontsize: 20, //TODO znaleźć przyczyne błędu
         color: '#000',
     },
-    titletext: {
-        fontSize: 40,
-        marginBottom: 120,
-        textAlign: "left",
-    },
-    minititletext: {
-        fontSize: 15,
-        color: '#515761',
-    },
-    edycjabutton: {
-        margin: 10,
-        backgroundColor: '#E8DEF8',
-        paddingVertical: 10,
-        paddingHorizontal: 24,
-        borderRadius: 25,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    usuwaniebutton: {
-        margin: 10,
-        backgroundColor: '#EC928E',
-        paddingVertical: 10,
-        paddingHorizontal: 24,
-        borderRadius: 25,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    rozpocznijbutton: {
-        margin: 10,
-        backgroundColor: '#6750A4',
-        color: '#fff',
-        paddingVertical: 10,
-        paddingHorizontal: 24,
-        borderRadius: 25,
-        alignItems: "left",
-        justifyContent: "left",
-    },
-    buttoncontainerright: {
-        maxWidth: '75%',
-        alignSelf: 'flex-start',
-        flexDirection: "column",
-        alignItems: 'right',
-    },
-    buttontext: {
-        color: '#fff'
-    },
-    buttoncontainer: {
-        maxWidth: '75%',
-        alignSelf: 'flex-end',
-        flex: 0,
-        flexDirection: "row",
-        alignItems: "center",
-    },
     textview: {
         maxWidth: '75%',
     }
