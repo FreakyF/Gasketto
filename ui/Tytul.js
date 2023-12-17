@@ -10,6 +10,7 @@ export default function Tytul({text = "", size = 45}) {
 
 const styles = StyleSheet.create({
     titletext: {
+        fontFamily: 'Roboto',
         textAlign: "center",
         margin: 20,
     },

@@ -68,9 +68,6 @@ const styles = StyleSheet.create({
         width: 350,
         height: 250,
     },
-    buttonRightText: {
-        color: 'white',
-    },
     input: {
         height: 40,
         padding: 10,

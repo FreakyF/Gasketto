@@ -3,6 +3,8 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image 
 import DalejButton from "../../ui/DalejButton";
 import PowrotButton from "../../ui/PowrotButton";
 import ButtonContainer from "../../ui/ButtonContainer";
+import Karuzela from "../../ui/Karuzela";
+import Tytul from "../../ui/Tytul";
 
 export default function StanPojazdu({navigation}) {
     const [images] = useState([
@@ -23,13 +25,9 @@ export default function StanPojazdu({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.screenTitle}>Stan pojazdu</Text>
+            <Tytul text={"Stan pojazdu"}/>
 
-            <ScrollView horizontal style={styles.imageSlider} showsHorizontalScrollIndicator={false}>
-                {images.map((image, index) => (
-                    <Image key={index} source={image} style={styles.image} />
-                ))}
-            </ScrollView>
+            <Karuzela images={images}/>
 
             <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu" />
 
@@ -48,23 +46,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    screenTitle: {
-        fontFamily: 'Roboto',
-        fontSize: 45,
-        lineHeight: 52,
-        marginTop: 40,
-        marginBottom: 50,
-    },
-    imageSlider: {
-        marginTop: 20,
-        marginBottom: 20,
-    },
-    image: {
-        width: 200,
-        height: 200,
-        marginRight: 10,
-        borderRadius: 10,
-    },
     textInput: {
         textAlignVertical: 'top',
         fontSize: 16,
@@ -77,52 +58,5 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         width: 350,
         height: 250,
-    },
-    switchContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 10,
-        width: 204,
-    },
-    switchLabel: {
-        fontFamily: 'Roboto',
-        fontSize: 16,
-        lineHeight: 52,
-        marginBottom: 10,
-        marginRight: "auto"
-    },
-    buttonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 30,
-        paddingHorizontal: 10,
-        width: 321,
-        marginBottom: 30
-    },
-    buttonLeft: {
-        backgroundColor: '#EC928E',
-        paddingVertical: 10,
-        paddingHorizontal: 30,
-        borderRadius: 25,
-        textAlign: 'right',
-        flex: 0,
-    },
-    buttonRight: {
-        backgroundColor: '#6750a4',
-        paddingVertical: 10,
-        paddingHorizontal: 30,
-        borderRadius: 25,
-        textAlign: 'left',
-        flex: 0,
-    },
-    buttonRightText: {
-        color: 'white',
-    },
-    input: {
-        height: 40,
-        padding: 10,
-        color: "#000",
     },
 });

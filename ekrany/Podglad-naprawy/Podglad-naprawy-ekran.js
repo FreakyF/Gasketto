@@ -1,6 +1,8 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import KontenerNaprawy from "./Kontener-naprawy";
 import Tytul from "../../ui/Tytul";
+import ButtonContainer from "../../ui/ButtonContainer";
+import DalejButton from "../../ui/DalejButton";
 
 export default function PodgladNaprawyEkran({navigation}) {
     const zakaczNaprawe = () => {
@@ -19,9 +21,9 @@ export default function PodgladNaprawyEkran({navigation}) {
             <View style={styles.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
-            <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={() => zakaczNaprawe()}>
-                <Text style={styles.buttonText}>Zakończ naprawę</Text>
-            </TouchableOpacity>
+            <ButtonContainer>
+                <DalejButton text={"Zakończ naprawę"} action={zakaczNaprawe}/>
+            </ButtonContainer>
         </View>
     );
 }
@@ -33,25 +35,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    screenTitle: {
-        fontFamily: 'Roboto',
-        fontSize: 45,
-        lineHeight: 52,
-        marginBottom: 56,
-    },
     spacingContainer: {
         marginBottom: 20,
     },
-    button: {
-        backgroundColor: '#6750a4',
-        paddingVertical: 10,
-        paddingHorizontal: 24,
-        borderRadius: 25,
-        textAlign: 'right',
-        alignSelf: 'flex-end',
-        flex: 0,
-    },
-    buttonText: {
-        color: 'white',
-    }
 });
