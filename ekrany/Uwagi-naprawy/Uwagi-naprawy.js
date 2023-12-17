@@ -4,6 +4,7 @@ import Tytul from "../../ui/Tytul";
 import ButtonContainer from "../../ui/ButtonContainer";
 import PowrotButton from "../../ui/PowrotButton";
 import DalejButton from "../../ui/DalejButton";
+import Karuzela from "../../ui/Karuzela";
 
 export default function UwagiNaprawy({navigation}) {
     const zapisz = () => {
@@ -22,11 +23,7 @@ export default function UwagiNaprawy({navigation}) {
         <View style={styles.container}>
             <Tytul text={"Uwagi"}/>
 
-            <ScrollView horizontal style={styles.imageSlider} showsHorizontalScrollIndicator={false}>
-                {images.map((image, index) => (
-                    <Image key={index} source={image} style={styles.image}/>
-                ))}
-            </ScrollView>
+            <Karuzela images={images} navigation={navigation}/>
 
             <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu"/>
 

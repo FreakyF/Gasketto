@@ -5,19 +5,28 @@ export default function Karuzela({images, navigation}) {
         navigation.navigate("Aparat");
     }
 
+    const goToZdjecie = () => {
+        navigation.navigate("Zdjecie");
+    }
+
     return (
-        <ScrollView horizontal style={styles.imageSlider}>
-            {images.map((image, index) => (
-                <Image key={index} source={image} style={styles.image}/>
-            ))}
-            <TouchableOpacity style={styles.cameraButton} activeOpacity={0.7} onPress={() => goToCamera()}/>
-        </ScrollView>
+        <View style={styles.imageSlider}>
+            <ScrollView horizontal>
+                {images.map((image, index) => (
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => goToZdjecie()}>
+                    <Image key={index} source={image} style={styles.image}/>
+                    </TouchableOpacity>
+                ))}
+                <TouchableOpacity style={styles.cameraButton} activeOpacity={0.7} onPress={() => goToCamera()}/>
+            </ScrollView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     imageSlider: {
         marginVertical: 20,
+        height: 205,
     },
     image: {
         width: 200,
