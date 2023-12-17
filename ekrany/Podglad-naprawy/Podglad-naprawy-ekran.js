@@ -1,19 +1,24 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import KontenerNaprawy from "./Kontener-naprawy";
 
-export default function PodgladNaprawyEkran() {
+export default function PodgladNaprawyEkran({navigation}) {
+    const zakaczNaprawe = () => {
+        navigation.goBack();
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.screenTitle}>SCI 6174E</Text>
-            <KontenerNaprawy />
             <View style={styles.spacingContainer}>
-                <KontenerNaprawy />
+                <KontenerNaprawy navigation={navigation}/>
             </View>
             <View style={styles.spacingContainer}>
-                <KontenerNaprawy />
+                <KontenerNaprawy navigation={navigation}/>
             </View>
-
-            <TouchableOpacity style={styles.button} activeOpacity={0.7}>
+            <View style={styles.spacingContainer}>
+                <KontenerNaprawy navigation={navigation}/>
+            </View>
+            <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={() => zakaczNaprawe()}>
                 <Text style={styles.buttonText}>Zakończ naprawę</Text>
             </TouchableOpacity>
         </View>

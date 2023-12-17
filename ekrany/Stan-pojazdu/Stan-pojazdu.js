@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image } from 'react-native';
+import DalejButton from "../../ui/DalejButton";
+import PowrotButton from "../../ui/PowrotButton";
+import ButtonContainer from "../../ui/ButtonContainer";
 
-export default function DanePojazduEkran() {
+export default function StanPojazdu({navigation}) {
     const [images] = useState([
         require('./Leon.png'),
         require('./Leon.png'),
         require('./Leon.png'),
     ]);
+
+    const dalej = () => {
+        navigation.navigate("Naprawy", {screen: "Naprawa"});
+        navigation.reset({index: 0,
+        routes: [{name: "Nadchodzące wizyty"}]});
+    }
+
+    const anuluj = () => {
+        navigation.goBack();
+    }
 
     return (
         <View style={styles.container}>
@@ -20,14 +33,10 @@ export default function DanePojazduEkran() {
 
             <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu" />
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7}>
-                    <Text>Anuluj wizytę</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7}>
-                    <Text style={styles.buttonRightText}>Przejdź dalej</Text>
-                </TouchableOpacity>
-            </View>
+            <ButtonContainer>
+                <PowrotButton action={anuluj}/>
+                <DalejButton action={dalej} text={"Zapisz i zakończ"}/>
+            </ButtonContainer>
         </View>
     );
 }

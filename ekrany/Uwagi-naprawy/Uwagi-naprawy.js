@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image } from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image} from 'react-native';
 
-export default function UwagiNaprawy() {
+export default function UwagiNaprawy({navigation}) {
+    const zapisz = () => {
+        navigation.goBack();
+    }
+    const usun = () => {
+        navigation.goBack();
+    }
     const [images] = useState([
         require('./Leon.png'),
         require('./Leon.png'),
@@ -14,17 +20,17 @@ export default function UwagiNaprawy() {
 
             <ScrollView horizontal style={styles.imageSlider} showsHorizontalScrollIndicator={false}>
                 {images.map((image, index) => (
-                    <Image key={index} source={image} style={styles.image} />
+                    <Image key={index} source={image} style={styles.image}/>
                 ))}
             </ScrollView>
 
-            <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu" />
+            <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu"/>
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7}>
+                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7} onPress={() => usun()}>
                     <Text>Usuń</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7}>
+                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7} onPress={() => zapisz()}>
                     <Text style={styles.buttonRightText}>Zapisz</Text>
                 </TouchableOpacity>
             </View>

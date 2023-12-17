@@ -1,6 +1,17 @@
 import {StyleSheet, Switch, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import PowrotButton from "../../ui/PowrotButton";
+import DalejButton from "../../ui/DalejButton";
+import ButtonContainer from "../../ui/ButtonContainer";
 
-export default function DanePojazduEkran() {
+export default function DanePojazduEkran({navigation}) {
+    const dalej = () => {
+        navigation.navigate("Stan pojazdu");
+    }
+
+    const anuluj = () => {
+        navigation.goBack();
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.screenTitle}>Dane pojazdu</Text>
@@ -18,14 +29,10 @@ export default function DanePojazduEkran() {
             <TextInput style={styles.textInput} placeholder="Podaj VIN"/>
             <TextInput style={styles.textInput} placeholder="Podaj rok produkcji"/>
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7}>
-                    <Text>Anuluj wizytę</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7}>
-                    <Text style={styles.buttonRightText}>Przejdź dalej</Text>
-                </TouchableOpacity>
-            </View>
+            <ButtonContainer>
+                <PowrotButton action={anuluj}/>
+                <DalejButton action={dalej}/>
+            </ButtonContainer>
         </View>
     );
 }

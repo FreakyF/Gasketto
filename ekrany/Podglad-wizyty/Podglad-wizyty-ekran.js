@@ -1,9 +1,20 @@
 import React from "react";
 
 import {StyleSheet, Text, TextArea, TextInput, TouchableOpacity, View} from "react-native";
+import DalejButton from "../../ui/DalejButton";
+import PowrotButton from "../../ui/PowrotButton";
+import ButtonContainer from "../../ui/ButtonContainer";
 
 
-function PodgladWizytyEkran() {
+function PodgladWizytyEkran({navigation}) {
+    const rozpocznij = () => {
+        navigation.navigate("Dane pojazdu");
+    }
+
+    const anuluj = () => {
+        navigation.goBack();
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.titletext}>08:00 - 10:00</Text>
@@ -24,19 +35,10 @@ function PodgladWizytyEkran() {
                 vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
             </Text>
             </View>
-                <View style={styles.buttoncontainerright}>
-                    <TouchableOpacity style={styles.edycjabutton} activeOpacity={0.7}>
-                        <Text style={styles.textstyle}>Edytuj wizytę</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.usuwaniebutton} activeOpacity={0.7}>
-                        <Text style={styles.textstyle}>Anuluj wizytę</Text>
-                    </TouchableOpacity>
-                </View>
-            <View style={styles.buttoncontainer}>
-                <TouchableOpacity style={styles.rozpocznijbutton} activeOpacity={0.7}>
-                    <Text style={styles.buttontext}>Rozpocznij wizytę</Text>
-                </TouchableOpacity>
-            </View>
+            <ButtonContainer>
+                <PowrotButton action={anuluj} text={"Anuluj wizytę"}/>
+                <DalejButton action={rozpocznij}/>
+            </ButtonContainer>
         </View>
     )
 }
