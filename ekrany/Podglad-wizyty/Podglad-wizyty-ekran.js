@@ -1,6 +1,6 @@
 import React from "react";
 
-import {StyleSheet, Text, TextArea, TextInput, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import DalejButton from "../../ui/DalejButton";
 import PowrotButton from "../../ui/PowrotButton";
 import ButtonContainer from "../../ui/ButtonContainer";
@@ -27,13 +27,16 @@ function PodgladWizytyEkran({navigation}) {
             <Text style={styles.textstyle}>Adres2</Text>
             <Linia text="Opis wizyty"/>
             <View style={styles.textview}>
-            <Text style={styles.textcontainer}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum at mi eu semper. Sed odio
-                nulla, molestie eu accumsan a, dictum eu nibh. Vivamus commodo dolor nec lectus euismod, ac egestas eros
-                tempus. Duis bibendum aliquet commodo. Fusce suscipit porta elementum. Donec ac rutrum mi. Proin
-                facilisis mattis nulla, ut eleifend lacus mattis ac. Pellentesque sed neque tortor. Pellentesque luctus
-                vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
-            </Text>
+                <Text style={styles.textcontainer}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum at mi eu semper. Sed
+                    odio
+                    nulla, molestie eu accumsan a, dictum eu nibh. Vivamus commodo dolor nec lectus euismod, ac egestas
+                    eros
+                    tempus. Duis bibendum aliquet commodo. Fusce suscipit porta elementum. Donec ac rutrum mi. Proin
+                    facilisis mattis nulla, ut eleifend lacus mattis ac. Pellentesque sed neque tortor. Pellentesque
+                    luctus
+                    vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
+                </Text>
             </View>
             <ButtonContainer>
                 <PowrotButton action={anuluj} text={"Anuluj wizytę"}/>

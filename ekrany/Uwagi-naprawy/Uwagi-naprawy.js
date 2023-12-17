@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image} from 'react-native';
+import {StyleSheet, TextInput, View, ScrollView, Image} from 'react-native';
 import Tytul from "../../ui/Tytul";
 import ButtonContainer from "../../ui/ButtonContainer";
 import PowrotButton from "../../ui/PowrotButton";

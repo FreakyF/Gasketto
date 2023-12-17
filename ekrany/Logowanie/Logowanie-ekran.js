@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import DalejButton from "../../ui/DalejButton";
 import Tytul from "../../ui/Tytul";
 import InputMaly from "../../ui/InputMaly";
