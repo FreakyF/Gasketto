@@ -7,7 +7,7 @@ function Home() {
     const Drawer = createDrawerNavigator();
 
     return (
-            <Drawer.Navigator initialRouteName="Nadchodzace wizyty" screenOptions={{swipeEdgeWidth: 40}}>
+            <Drawer.Navigator initialRouteName="Nadchodzace wizyty" screenOptions={{swipeEdgeWidth: 50}}>
                 <Drawer.Screen name="Wizyty" component={Nadchodzace_wizyty_stack} options={{headerShown: false}}/>
                 <Drawer.Screen name="Naprawy" component={Nadchodzace_naprawy_stack} options={{headerShown: false}}/>
             </Drawer.Navigator>
