@@ -4,6 +4,8 @@ import {StyleSheet, Text, TextArea, TextInput, TouchableOpacity, View} from "rea
 import DalejButton from "../../ui/DalejButton";
 import PowrotButton from "../../ui/PowrotButton";
 import ButtonContainer from "../../ui/ButtonContainer";
+import Tytul from "../../ui/Tytul";
+import Linia from "../../ui/Linia";
 
 
 function PodgladWizytyEkran({navigation}) {
@@ -17,15 +19,13 @@ function PodgladWizytyEkran({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.titletext}>08:00 - 10:00</Text>
-            <View style={styles.hr}/>
-            <Text style={styles.minititletext}>Dane Klienta</Text>
+            <Tytul text="08:00 - 10:00"/>
+            <Linia text="Dane Klienta"/>
             <Text style={styles.textstyle}>Imię i nazwisko</Text>
             <Text style={styles.textstyle}>Numer telefonu</Text>
             <Text style={styles.textstyle}>Adres1</Text>
             <Text style={styles.textstyle}>Adres2</Text>
-            <View style={styles.hr}/>
-            <Text style={styles.minititletext}>Opis wizyty</Text>
+            <Linia text="Opis wizyty"/>
             <View style={styles.textview}>
             <Text style={styles.textcontainer}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum at mi eu semper. Sed odio

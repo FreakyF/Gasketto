@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import DalejButton from "../../ui/DalejButton";
+import Tytul from "../../ui/Tytul";
+import InputMaly from "../../ui/InputMaly";
 
 function LogowanieEkran({navigation}) {
     const [login, setLogin] = useState();
@@ -17,14 +20,10 @@ function LogowanieEkran({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.titletext}>Logowanie</Text>
-            <Text style={styles.textinputlabel}>Login</Text>
-            <TextInput style={styles.textinput} onChangeText={newText => setLogin(newText)}/>
-            <Text style={styles.textinputlabel}>Hasło</Text>
-            <TextInput style={styles.textinput} onChangeText={newText => setPassword(newText)}/>
-            <TouchableOpacity style={styles.logowaniebutton} activeOpacity={0.7} onPress={()=>validateLogin(login, password)}>
-                <Text style={styles.logowanietext}>Zaloguj</Text>
-            </TouchableOpacity>
+            <Tytul text="Logowanie"/>
+            <InputMaly label="Login" onChange={setLogin}/>
+            <InputMaly label="Hasło" onChange={setPassword}/>
+            <DalejButton action={() => validateLogin(login, password)} text={"Zaloguj"}/>
             {warning ? <Text>Nie poprawny login lub hasło</Text> : null}
         </View>
     )

@@ -10,7 +10,7 @@ export default function Nadchodzace_naprawy_stack() {
     const Stack = createNativeStackNavigator();
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Nadchodzące wizyty" component={NadchodzaceNaprawyEkran} options={{headerShown: false}}/>
+            <Stack.Screen name="Nadchodzące naprawy" component={NadchodzaceNaprawyEkran} options={{headerShown: false}}/>
             <Stack.Screen name="Naprawa" component={PodgladNaprawyEkran} options={{headerShown: false}}/>
             <Stack.Screen name="Uwagi naprawa" component={UwagiNaprawy} options={{headerShown: false}}/>
         </Stack.Navigator>
