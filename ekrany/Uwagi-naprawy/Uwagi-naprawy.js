@@ -68,9 +68,4 @@ const styles = StyleSheet.create({
         width: 350,
         height: 250,
     },
-    input: {
-        height: 40,
-        padding: 10,
-        color: "#000",
-    },
 });
