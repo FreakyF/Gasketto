@@ -1,7 +1,4 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {NavigationContainer} from "@react-navigation/native";
-import LogowanieEkran from "../Logowanie/Logowanie-ekran";
-import Home from "../Home";
 import NadchodzaceWyzityEkran from "./nadchodzace-wyzity-ekran";
 import podgladWizytyEkran from "../Podglad-wizyty/Podglad-wizyty-ekran";
 import DanePojazduEkran from "../Dane-pojazdu/Dane-pojazdu-ekran";
