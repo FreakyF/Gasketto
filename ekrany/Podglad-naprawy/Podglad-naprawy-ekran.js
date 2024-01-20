@@ -6,7 +6,10 @@ import DalejButton from "../../ui/DalejButton";
 
 export default function PodgladNaprawyEkran({navigation}) {
     const zakaczNaprawe = () => {
-        navigation.goBack();
+        navigation.reset({
+            index: 1,
+            routes: [{name: "nadchodzące naprawy"}]
+        });
     }
 
     return (
