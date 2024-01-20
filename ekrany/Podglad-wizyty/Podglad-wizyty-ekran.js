@@ -51,7 +51,7 @@ export default PodgladWizytyEkran;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#353635',
+        backgroundColor: '#121212',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 50,
@@ -63,9 +63,35 @@ const styles = StyleSheet.create({
     },
     textstyle: {
         // fontsize: 20, //TODO znaleźć przyczyne błędu
-        color: '#000',
+        color: '#e4e4e4',
+    },
+    textview: {
+        maxWidth: '75%',
+    },
+    textcontainer: {
+        color: '#e4e4e4',
+    }
+})
+/*
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fffff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 50,
+    },
+    hr: {
+        backgroundColor: '#aaa',
+        minWidth: '75%',
+        height: 1,
+    },
+    textstyle: {
+        // fontsize: 20, //TODO znaleźć przyczyne błędu
+        color: '#e4e4e4',
     },
     textview: {
         maxWidth: '75%',
     }
 })
+ */
