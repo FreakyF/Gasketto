@@ -28,3 +28,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
+
+
+const Darkstyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#121212',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
