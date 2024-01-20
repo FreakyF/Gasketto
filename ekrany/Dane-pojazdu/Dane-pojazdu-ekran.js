@@ -23,7 +23,10 @@ export default function DanePojazduEkran({navigation}) {
 
             <View style={styles.switchContainer}>
                 <Text style={styles.switchLabel}>Silnik w gazie</Text>
-                <Switch/>
+                <Switch
+                    trackColor={{false: '#6f59ab', true: '#8154f7'}}
+                    thumbColor={'#6750a4'}
+                />
             </View>
 
 
@@ -37,7 +40,6 @@ export default function DanePojazduEkran({navigation}) {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -55,6 +57,28 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontSize: 16,
         lineHeight: 52,
+        marginRight: "auto"
+    },
+});
+const Darkstyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#121212',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    switchContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+
+        width: 204
+    },
+    switchLabel: {
+        fontFamily: 'Roboto',
+        fontSize: 16,
+        lineHeight: 52,
+        color: '#e4e4e4',
         marginRight: "auto"
     },
 });
