@@ -48,7 +48,7 @@ function PodgladWizytyEkran({navigation}) {
 
 export default PodgladWizytyEkran;
 
-const styles = StyleSheet.create({
+const darkStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#121212',
@@ -72,11 +72,11 @@ const styles = StyleSheet.create({
         color: '#e4e4e4',
     }
 })
-/*
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fffff',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 50,
@@ -88,10 +88,9 @@ const styles = StyleSheet.create({
     },
     textstyle: {
         // fontsize: 20, //TODO znaleźć przyczyne błędu
-        color: '#e4e4e4',
+        color: '#000',
     },
     textview: {
         maxWidth: '75%',
     }
 })
- */
