@@ -1,20 +1,20 @@
 import React from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-function Wizyta({navigation}) {
-    const goToWizyta = () => {
-        navigation.navigate("Wizyta");
+function Naprawa({navigation}) {
+    const goToNaprawa = () => {
+        navigation.navigate("Naprawa");
     }
 
     return (
-        <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={() => goToWizyta()}>
+        <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={() => goToNaprawa()}>
             <Text style={[styles.text, styles.bold]}>Jan Kowalski</Text>
             <Text style={styles.text}>8:00 - 10:00</Text>
         </TouchableOpacity>
     )
 }
 
-export default Wizyta;
+export default Naprawa;
 
 const styles = StyleSheet.create({
     container: {

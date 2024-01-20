@@ -1,14 +1,18 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-const KontenerNaprawy = () => {
+export default function KontenerNaprawy({navigation}) {
+    const goToUwaginaprawa = () => {
+        navigation.navigate("Uwagi naprawa");
+    }
+    
     return (
         <View style={styles.repairContainer}>
             <Text style={styles.listItem}>List item</Text>
             <Text style={styles.description}>Supporting line text lorem ipsum dolor sit amet, consectetur.</Text>
             <Text style={styles.doneText}>Czy wykonano:</Text>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7}>
+                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7} onPress={() => goToUwaginaprawa()}>
                     <Text style={styles.buttonLeftText}>Uwagi</Text>
                 </TouchableOpacity>
 
@@ -96,5 +100,3 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     }
 });
-
-export default KontenerNaprawy;

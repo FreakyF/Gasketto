@@ -1,5 +1,8 @@
 import React, {useState} from "react";
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
+import DalejButton from "../../ui/DalejButton";
+import Tytul from "../../ui/Tytul";
+import InputMaly from "../../ui/InputMaly";
 
 function LogowanieEkran({navigation}) {
     const [login, setLogin] = useState();
@@ -9,7 +12,7 @@ function LogowanieEkran({navigation}) {
     const validateLogin = (login, password) => {
         if (login === password) {
             setWarning(false);
-            navigation.navigate("Wizyty");
+            navigation.navigate("Home");
         } else {
             setWarning(true);
         }
@@ -17,14 +20,10 @@ function LogowanieEkran({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.titletext}>Logowanie</Text>
-            <Text style={styles.textinputlabel}>Login</Text>
-            <TextInput style={styles.textinput} onChangeText={newText => setLogin(newText)}/>
-            <Text style={styles.textinputlabel}>Hasło</Text>
-            <TextInput style={styles.textinput} onChangeText={newText => setPassword(newText)}/>
-            <TouchableOpacity style={styles.logowaniebutton} activeOpacity={0.7} onPress={()=>validateLogin(login, password)}>
-                <Text style={styles.logowanietext}>Zaloguj</Text>
-            </TouchableOpacity>
+            <Tytul text="Logowanie"/>
+            <InputMaly label="Login" onChange={setLogin}/>
+            <InputMaly label="Hasło" onChange={setPassword}/>
+            <DalejButton action={() => validateLogin(login, password)} text={"Zaloguj"}/>
             {warning ? <Text>Nie poprawny login lub hasło</Text> : null}
         </View>
     )
@@ -39,31 +38,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    textinputlabel: {
-        minWidth: '50%',
-        fontSize: 10,
-        paddingHorizontal: 10,
-        paddingVertical: 2,
-        color: '#000',
-    },
-    textinput: {
-        borderWidth: 1,
-        borderColor: '#000',
-        marginBottom: 10,
-        minWidth: '50%',
-        padding: 10,
-        borderRadius: 10,
-    },
-    logowaniebutton: {
-        margin: 10,
-        backgroundColor: '#6750a4',
-        paddingVertical: 10,
-        paddingHorizontal: 24,
-        borderRadius: 25,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    logowanietext: {
-        color: '#fff'
-    }
 });

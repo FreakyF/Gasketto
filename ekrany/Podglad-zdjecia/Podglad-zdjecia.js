@@ -1,6 +1,18 @@
 import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
+import ButtonContainer from "../../ui/ButtonContainer";
+import PowrotButton from "../../ui/PowrotButton";
+import DalejButton from "../../ui/DalejButton";
 
-export default function PodgladZdjecia() {
+export default function PodgladZdjecia({navigation}) {
+    const powrot = () => {
+        navigation.goBack();
+    }
+
+    const usun = () => {
+        navigation.goBack();
+    }
+
+
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
@@ -8,9 +20,7 @@ export default function PodgladZdjecia() {
                     <Text>10-9-2022</Text>
                     <Text>8:35</Text>
                 </View>
-                <TouchableOpacity style={styles.buttonDelete} activeOpacity={0.7}>
-                    <Text>Usuń</Text>
-                </TouchableOpacity>
+                <PowrotButton text={"Usuń"} action={usun}/>
             </View>
 
             <Image
@@ -18,15 +28,9 @@ export default function PodgladZdjecia() {
                 style={{ width: 376, height: 616 }}
             />
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonNext} activeOpacity={0.7}>
-                    <Text style={styles.buttonNextText}>Poprzednie</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.buttonPrevious} activeOpacity={0.7}>
-                    <Text style={styles.buttonPreviousText}>Następne</Text>
-                </TouchableOpacity>
-            </View>
+            <ButtonContainer>
+                <DalejButton action={powrot} text={"Powrót"}/>
+            </ButtonContainer>
         </View>
     );
 }
