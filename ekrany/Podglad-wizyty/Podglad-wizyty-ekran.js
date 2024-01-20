@@ -51,7 +51,7 @@ export default PodgladWizytyEkran;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#353635',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 50,
