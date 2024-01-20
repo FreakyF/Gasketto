@@ -1,6 +1,6 @@
 import React from "react";
 
-import {StyleSheet, Text, TextArea, TextInput, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 
 function PodgladWizytyEkran() {
@@ -44,6 +44,81 @@ function PodgladWizytyEkran() {
 export default PodgladWizytyEkran;
 
 const styles = StyleSheet.create({
+
+    container: {
+        flex: 1,
+        backgroundColor: '#353635',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop:50,
+    },
+    hr: {
+        backgroundColor: '#aaa',
+        minWidth: '75%',
+        height: 1,
+    },
+    textstyle: {
+        fontsize: 20,
+        color: '#000',
+    },
+    titletext: {
+        fontSize: 40,
+        marginBottom: 120,
+        textAlign: "left",
+    },
+    minititletext: {
+        fontSize: 15,
+        color: '#515761',
+    },
+    edycjabutton: {
+        margin: 10,
+        backgroundColor: '#E8DEF8',
+        paddingVertical: 10,
+        paddingHorizontal: 24,
+        borderRadius: 25,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    usuwaniebutton: {
+        margin: 10,
+        backgroundColor: '#EC928E',
+        paddingVertical: 10,
+        paddingHorizontal: 24,
+        borderRadius: 25,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    rozpocznijbutton: {
+        margin: 10,
+        backgroundColor: '#6750A4',
+        color: '#fff',
+        paddingVertical: 10,
+        paddingHorizontal: 24,
+        borderRadius: 25,
+        alignItems: "left",
+        justifyContent: "left",
+    },
+    buttoncontainerright: {
+        maxWidth: '75%',
+        alignSelf: 'flex-start',
+        flexDirection: "column",
+        alignItems: 'right',
+    },
+    buttontext: {
+        color: '#fff'
+    },
+    buttoncontainer: {
+        maxWidth: '75%',
+        alignSelf: 'flex-end',
+        flex: 0,
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    textview: {
+        maxWidth: '75%',
+    }
+})
+/*const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
@@ -117,3 +192,4 @@ const styles = StyleSheet.create({
         maxWidth: '75%',
     }
 })
+const darkStyles = StyleSheet.create*/
