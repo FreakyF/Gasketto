@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {LightSensor} from "expo-sensors";
 
 function Wizyta({navigation, item}) {
     const goToWizyta = () => {
         navigation.navigate("Wizyta", {item: item,});
     }
-
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (
-        <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={() => goToWizyta()}>
-            <Text style={[styles.text, styles.bold]}>{item.Imie} {item.Nazwisko}</Text>
-            <Text style={styles.text}>{item.Godzina}</Text>
+        <TouchableOpacity style={aktywnystyl.container} activeOpacity={0.7} onPress={() => goToWizyta()}>
+            <Text style={[aktywnystyl.text, aktywnystyl.bold]}>{item.Imie} {item.Nazwisko}</Text>
+            <Text style={aktywnystyl.text}>{item.Godzina}</Text>
         </TouchableOpacity>
     )
 }
