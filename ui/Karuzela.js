@@ -13,8 +13,8 @@ export default function Karuzela({images, navigation}) {
         <View style={styles.imageSlider}>
             <ScrollView horizontal>
                 {images.map((image, index) => (
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => goToZdjecie()}>
-                    <Image key={index} source={image} style={styles.image}/>
+                    <TouchableOpacity key={index} activeOpacity={0.7} onPress={() => goToZdjecie()}>
+                        <Image source={image} style={styles.image}/>
                     </TouchableOpacity>
                 ))}
                 <TouchableOpacity style={styles.cameraButton} activeOpacity={0.7} onPress={() => goToCamera()}/>
