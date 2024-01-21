@@ -92,7 +92,7 @@ function LogowanieEkran({navigation}) {
         <View style={aktywnystyl.container}>
             <Tytul text="Logowanie"/>
             <InputMaly label="Login" onChange={setLogin}/>
-            <InputMaly label="Hasło" onChange={setPassword}/>
+            <InputMaly label="Hasło" onChange={setPassword} secureTextEntry={true}/>
             <DalejButton action={() => validateLogin(login, password)} text={"Zaloguj"}/>
             {warning ? <Text style={aktywnystyl.tekst}>Niepoprawny login lub hasło</Text> : null}
         </View>
@@ -119,5 +119,4 @@ const Darkstyles = StyleSheet.create({
     tekst: {
         color: '#e4e4e4'
     }
-
 });
