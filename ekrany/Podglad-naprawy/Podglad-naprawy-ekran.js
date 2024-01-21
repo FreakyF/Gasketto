@@ -1,10 +1,11 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import KontenerNaprawy from "./Kontener-naprawy";
 import Tytul from "../../ui/Tytul";
 import ButtonContainer from "../../ui/ButtonContainer";
 import DalejButton from "../../ui/DalejButton";
+import Naprawa from "../nadchodzoace-naprawy/nadchodzace-naprawy-wizyta";
 
-export default function PodgladNaprawyEkran({route,navigation}) {
+export default function PodgladNaprawyEkran({route, navigation}) {
     const {item} = route.params;
     const zakaczNaprawe = () => {
         navigation.reset({
@@ -13,18 +14,12 @@ export default function PodgladNaprawyEkran({route,navigation}) {
         });
     }
 
+    const renderItem = ({item}) => <KontenerNaprawy navigation={navigation} item={item}/>;
+
     return (
         <View style={styles.container}>
             <Tytul text={item.tablica}/>
-            <View style={styles.spacingContainer}>
-                <KontenerNaprawy navigation={navigation}/>
-            </View>
-            <View style={styles.spacingContainer}>
-                <KontenerNaprawy navigation={navigation}/>
-            </View>
-            <View style={styles.spacingContainer}>
-                <KontenerNaprawy navigation={navigation}/>
-            </View>
+            <FlatList data={item.naprawy} renderItem={renderItem}/>
             <ButtonContainer>
                 <DalejButton text={"Zakończ naprawę"} action={zakaczNaprawe}/>
             </ButtonContainer>

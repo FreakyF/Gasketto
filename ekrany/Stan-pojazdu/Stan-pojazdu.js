@@ -36,12 +36,7 @@ export default function StanPojazdu({route, navigation}) {
             id: item.id,
             tablica: item.Tablica,
             godzina: "8:00 - 10:00",
-            naprawy: [{
-                1: "test",
-                2: "test1",
-                3: "test2",
-                4: "test3",
-            }]
+            naprawy: [{nazwa: "test"},{nazwa: "test"}]
         }
 
         try {
@@ -72,7 +67,7 @@ export default function StanPojazdu({route, navigation}) {
             index: 0,
             routes: [{name: "Nadchodzące wizyty"}]
         });
-        navigation.navigate("Naprawy", {screen: "Naprawa"});
+        navigation.navigate("Naprawy", {screen: "Naprawa", params: {item: naprawa}});
     }
 
     const anuluj = () => {
