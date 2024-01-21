@@ -9,7 +9,7 @@ export default function InputMaly({label = "", onChange = null, placeholder = ""
         }
     }
 
-    const [illuminance, setIlluminance] = useState(0);
+    const [illuminance, setIlluminance] = useState(26);
 
     useEffect(() => {
         const subscription = LightSensor.addListener(data => {
