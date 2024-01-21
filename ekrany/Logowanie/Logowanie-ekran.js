@@ -69,8 +69,6 @@ function LogowanieEkran({navigation}) {
 
     // storeData("wizyty");
 
-    //Test git
-
     const validateLogin = (login, password) => {
         if (login === password) {
             setWarning(false);
@@ -89,7 +87,7 @@ function LogowanieEkran({navigation}) {
             <InputMaly label="Login" onChange={setLogin}/>
             <InputMaly label="Hasło" onChange={setPassword}/>
             <DalejButton action={() => validateLogin(login, password)} text={"Zaloguj"}/>
-            {warning ? <Text>Nie poprawny login lub hasło</Text> : null}
+            {warning ? <Text style = {aktywnystyl.tekst}>Nie poprawny login lub hasło</Text> : null}
         </View>
     )
 }
@@ -111,5 +109,8 @@ const Darkstyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    tekst: {
+        color: '#e4e4e4'
+    }
 
 });

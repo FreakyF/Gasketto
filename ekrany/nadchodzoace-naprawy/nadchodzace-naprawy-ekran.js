@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import Naprawa from "./nadchodzace-naprawy-wizyta";
 import Linia from "../../ui/Linia";
@@ -20,7 +20,9 @@ function NadchodzaceNaprawyEkran({navigation}) {
         }
     };
 
-    fetchData();
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const renderItem = ({item}) => <Naprawa navigation={navigation} item={item}/>;
 

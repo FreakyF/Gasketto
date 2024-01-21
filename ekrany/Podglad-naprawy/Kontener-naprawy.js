@@ -3,23 +3,22 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {LightSensor} from "expo-sensors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function KontenerNaprawy({navigation, item}) {
+export default function KontenerNaprawy({navigation, item, id}) {
 
     const usunNaprawe = async () => {
         try {
             let currentData = await AsyncStorage.getItem("naprawy");
             currentData = JSON.parse(currentData);
-            currentData.naprawy = currentData.naprawy.filter(currentData => currentData.id !== item.id);
+            currentData = currentData.map(p => (
+                {...p, naprawy: p.naprawy.filter(currentData => currentData.id !== item.id)}
+            ))
             const jsonValue = JSON.stringify(currentData);
-            await AsyncStorage.setItem("wizyty", jsonValue);
+            await AsyncStorage.setItem("naprawy", jsonValue);
         } catch (e) {
             console.log(e);
         }
     }
 
-    const goToUwaginaprawa = () => {
-        navigation.navigate("Uwagi naprawa");
-    }
     const [illuminance, setilluminance] = useState(0);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {
@@ -31,15 +30,11 @@ export default function KontenerNaprawy({navigation, item}) {
             <Text style={aktywnystyl.description}>{item.opis}</Text>
             <Text style={aktywnystyl.doneText}>Czy wykonano:</Text>
             <View style={aktywnystyl.buttonContainer}>
-                <TouchableOpacity style={aktywnystyl.buttonLeft} activeOpacity={0.7} onPress={() => goToUwaginaprawa()}>
-                    <Text style={aktywnystyl.buttonLeftText}>Uwagi</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={aktywnystyl.buttonMid} activeOpacity={0.7}>
+                <TouchableOpacity style={aktywnystyl.buttonMid} activeOpacity={0.7} onPress={() => usunNaprawe()}>
                     <Text style={aktywnystyl.buttonMidText}>Nie</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7}>
+                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7} onPress={() => usunNaprawe()}>
                     <Text style={styles.buttonRightText}>Tak</Text>
                 </TouchableOpacity>
             </View>

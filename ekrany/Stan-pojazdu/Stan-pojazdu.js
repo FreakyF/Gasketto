@@ -37,7 +37,7 @@ export default function StanPojazdu({route, navigation}) {
             id: item.id,
             tablica: item.Tablica,
             godzina: "8:00 - 10:00",
-            naprawy: [{id: 0, nazwa: "naprawa okna", opis: "naprawa linki od okna", uwagi: "", wykonano: ""},]
+            naprawy: [{id: 0, nazwa: "naprawa okna", opis: "naprawa linki od okna"},]
         }
 
         try {
