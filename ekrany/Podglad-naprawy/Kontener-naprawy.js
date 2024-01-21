@@ -27,7 +27,6 @@ export default function KontenerNaprawy({navigation}) {
         </View>
     );
 };
-
 const styles = StyleSheet.create({
     listItem: {
         fontFamily: "Roboto",
@@ -52,6 +51,81 @@ const styles = StyleSheet.create({
     repairContainer: {
         borderRadius: 10,
         backgroundColor: "#FEF7FF",
+        width: 360,
+        height: 159
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingTop: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 20,
+        width: 360
+    },
+    buttonLeft: {
+        backgroundColor: '#E8DEF8',
+        paddingVertical: 10,
+        paddingHorizontal: 24,
+        borderRadius: 25,
+        textAlign: 'left',
+        flex: 0,
+    },
+    buttonMid: {
+        backgroundColor: '#EC928E',
+        paddingVertical: 10,
+        paddingHorizontal: 24,
+        borderRadius: 25,
+        textAlign: 'left',
+        flex: 0,
+    },
+    buttonRight: {
+        backgroundColor: '#6750a4',
+        paddingVertical: 10,
+        paddingHorizontal: 24,
+        borderRadius: 25,
+        textAlign: 'left',
+        flex: 0,
+    },
+    buttonLeftText: {
+        fontWeight: "bold"
+    },
+    buttonMidText: {
+        fontWeight: "bold"
+    },
+    buttonRightText: {
+        color: 'white',
+        fontWeight: "bold"
+    }
+});
+const Darkstyles = StyleSheet.create({
+    listItem: {
+        fontFamily: "Roboto",
+        fontSize: 16,
+        lineHeight: 24,
+        paddingTop: 10,
+        paddingLeft: 20,
+        color: '#e4e4e4'
+    },
+    description: {
+        fontFamily: "Roboto",
+        fontSize: 14,
+        lineHeight: 20,
+        paddingLeft: 20,
+        color: '#e4e4e4'
+    },
+    doneText: {
+        fontFamily: "Roboto",
+        fontWeight: "bold",
+        fontSize: 14,
+        lineHeight: 20,
+        paddingLeft: 20,
+        color: '#e4e4e4'
+    },
+    repairContainer: {
+        borderRadius: 10,
+        backgroundColor: "#30302f",
         width: 360,
         height: 159
     },

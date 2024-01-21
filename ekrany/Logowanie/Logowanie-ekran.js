@@ -1,13 +1,68 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {StyleSheet, Text, View} from "react-native";
 import DalejButton from "../../ui/DalejButton";
 import Tytul from "../../ui/Tytul";
 import InputMaly from "../../ui/InputMaly";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function LogowanieEkran({navigation}) {
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
     const [warning, setWarning] = useState();
+
+    // const storeData = async (key) => {
+    //     const testjson = {
+    //         "id": 0,
+    //         "Imie": "test",
+    //         "Nazwisko": "TEST",
+    //         "NrTele": 123456789,
+    //         "Adres1": "Kiełce",
+    //         "Adres2": "25-001",
+    //         "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+    //         "Godzina": "8:00 - 10:00",
+    //     };
+    //
+    //     const testjson2 = {
+    //         "id": 1,
+    //         "Imie": "tes4t",
+    //         "Nazwisko": "TEST",
+    //         "NrTele": 123456789,
+    //         "Adres1": "Kiełce",
+    //         "Adres2": "25-001",
+    //         "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+    //         "Godzina": "10:00 - 11:00",
+    //     };
+    //
+    //     const testjson3 = {
+    //         "id": 3,
+    //         "Imie": "test2",
+    //         "Nazwisko": "TEST",
+    //         "NrTele": 123456789,
+    //         "Adres1": "Kiełce",
+    //         "Adres2": "25-001",
+    //         "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+    //         "Godzina": "11:00 - 13:00",
+    //     };
+    //
+    //     try {
+    //         AsyncStorage.removeItem("wizyty");
+    //         let currentData = await AsyncStorage.getItem("wizyty");
+    //         if (currentData == null) {
+    //             currentData = [];
+    //         } else {
+    //             currentData = JSON.parse(currentData);
+    //         }
+    //         currentData.push(testjson);
+    //         currentData.push(testjson2);
+    //         currentData.push(testjson3);
+    //         const jsonValue = JSON.stringify(currentData);
+    //         await AsyncStorage.setItem(key, jsonValue);
+    //     } catch (e) {
+    //         console.log(e);
+    //     }
+    // }
+    //
+    // storeData("wizyty");
 
     const validateLogin = (login, password) => {
         if (login === password) {
@@ -38,4 +93,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+});
+const Darkstyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#121212',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
 });

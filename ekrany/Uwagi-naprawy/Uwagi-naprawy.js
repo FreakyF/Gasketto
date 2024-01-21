@@ -34,7 +34,6 @@ export default function UwagiNaprawy({navigation}) {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -57,6 +56,38 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         color: '#49454F',
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: '#ccc',
+        padding: 10,
+        marginBottom: 20,
+        width: 350,
+        height: 250,
+    },
+});
+const Darkstyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#121212',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    imageSlider: {
+        marginTop: 20,
+        marginBottom: 20,
+    },
+    image: {
+        width: 200,
+        height: 200,
+        marginRight: 10,
+        borderRadius: 10,
+    },
+    textInput: {
+        textAlignVertical: 'top',
+        backgroundColor: '#30302f',
+        fontSize: 16,
+        lineHeight: 24,
+        color: '#e4e4e4',
         borderWidth: 1,
         borderRadius: 10,
         borderColor: '#ccc',

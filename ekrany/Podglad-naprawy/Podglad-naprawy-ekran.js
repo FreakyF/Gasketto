@@ -42,3 +42,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
 });
+const Darkstyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#121212',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    spacingContainer: {
+        marginBottom: 20,
+    },
+});

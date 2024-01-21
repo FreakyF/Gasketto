@@ -6,36 +6,44 @@ import PowrotButton from "../../ui/PowrotButton";
 import ButtonContainer from "../../ui/ButtonContainer";
 import Tytul from "../../ui/Tytul";
 import Linia from "../../ui/Linia";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-function PodgladWizytyEkran({navigation}) {
+function PodgladWizytyEkran({route, navigation}) {
+    const {item} = route.params;
     const rozpocznij = () => {
-        navigation.navigate("Dane pojazdu");
+        navigation.navigate("Dane pojazdu", {item: item});
+    }
+
+    const deleteId = async () => {
+        try {
+            let currentData = await AsyncStorage.getItem("wizyty");
+            currentData = JSON.parse(currentData);
+            currentData = currentData.filter(currentData => currentData.id !== item.id);
+            const jsonValue = JSON.stringify(currentData);
+            await AsyncStorage.setItem("wizyty", jsonValue);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     const anuluj = () => {
+        deleteId();
         navigation.goBack();
     }
 
     return (
         <View style={styles.container}>
-            <Tytul text="08:00 - 10:00"/>
+            <Tytul text={item.Godzina}/>
             <Linia text="Dane Klienta"/>
-            <Text style={styles.textstyle}>Imię i nazwisko</Text>
-            <Text style={styles.textstyle}>Numer telefonu</Text>
-            <Text style={styles.textstyle}>Adres1</Text>
-            <Text style={styles.textstyle}>Adres2</Text>
+            <Text style={styles.textstyle}>{item.Imie} {item.Nazwisko}</Text>
+            <Text style={styles.textstyle}>{item.NrTele}</Text>
+            <Text style={styles.textstyle}>{item.Adres1}</Text>
+            <Text style={styles.textstyle}>{item.Adres2}</Text>
             <Linia text="Opis wizyty"/>
             <View style={styles.textview}>
                 <Text style={styles.textcontainer}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum at mi eu semper. Sed
-                    odio
-                    nulla, molestie eu accumsan a, dictum eu nibh. Vivamus commodo dolor nec lectus euismod, ac egestas
-                    eros
-                    tempus. Duis bibendum aliquet commodo. Fusce suscipit porta elementum. Donec ac rutrum mi. Proin
-                    facilisis mattis nulla, ut eleifend lacus mattis ac. Pellentesque sed neque tortor. Pellentesque
-                    luctus
-                    vulputate nisl. Vestibulum eget ligula a justo ullamcorper consequat et vestibulum lectus.
+                    {item.Opis}
                 </Text>
             </View>
             <ButtonContainer>
@@ -48,7 +56,7 @@ function PodgladWizytyEkran({navigation}) {
 
 export default PodgladWizytyEkran;
 
-const styles = StyleSheet.create({
+const darkStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#121212',
@@ -72,11 +80,11 @@ const styles = StyleSheet.create({
         color: '#e4e4e4',
     }
 })
-/*
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fffff',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 50,
@@ -88,10 +96,9 @@ const styles = StyleSheet.create({
     },
     textstyle: {
         // fontsize: 20, //TODO znaleźć przyczyne błędu
-        color: '#e4e4e4',
+        color: '#000',
     },
     textview: {
         maxWidth: '75%',
     }
 })
- */

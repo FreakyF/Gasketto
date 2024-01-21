@@ -38,3 +38,26 @@ const styles = StyleSheet.create({
         padding: 10,
     },
 });
+
+const Darkstyles = StyleSheet.create({
+    container: {
+        marginVertical: 10,
+    },
+    textinputlabel: {
+        minWidth: '50%',
+        fontSize: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 2,
+        color: '#c9c9c9',
+    },
+    textinput: {
+        minWidth: '50%',
+        fontSize: 16,
+        lineHeight: 24,
+        color: '#8c8c8b',
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: '#ccc',
+        padding: 10,
+    },
+});
