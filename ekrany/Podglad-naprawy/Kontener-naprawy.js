@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {LightSensor} from "expo-sensors";
 
-export default function KontenerNaprawy({navigation}) {
+export default function KontenerNaprawy({navigation, item}) {
     const goToUwaginaprawa = () => {
         navigation.navigate("Uwagi naprawa");
     }
@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: "#FEF7FF",
         width: 360,
-        height: 159
+        height: 159,
+        marginBottom: 20,
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -130,7 +131,8 @@ const Darkstyles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: "#30302f",
         width: 360,
-        height: 159
+        height: 159,
+        marginBottom: 20,
     },
     buttonContainer: {
         flexDirection: 'row',
