@@ -11,58 +11,60 @@ function LogowanieEkran({navigation}) {
     const [password, setPassword] = useState();
     const [warning, setWarning] = useState();
 
-    // const storeData = async (key) => {
-    //     const testjson = {
-    //         "id": 0,
-    //         "Imie": "test",
-    //         "Nazwisko": "TEST",
-    //         "NrTele": 123456789,
-    //         "Adres1": "Kiełce",
-    //         "Adres2": "25-001",
-    //         "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
-    //         "Godzina": "8:00 - 10:00",
-    //     };
-    //
-    //     const testjson2 = {
-    //         "id": 1,
-    //         "Imie": "tes4t",
-    //         "Nazwisko": "TEST",
-    //         "NrTele": 123456789,
-    //         "Adres1": "Kiełce",
-    //         "Adres2": "25-001",
-    //         "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
-    //         "Godzina": "10:00 - 11:00",
-    //     };
-    //
-    //     const testjson3 = {
-    //         "id": 3,
-    //         "Imie": "test2",
-    //         "Nazwisko": "TEST",
-    //         "NrTele": 123456789,
-    //         "Adres1": "Kiełce",
-    //         "Adres2": "25-001",
-    //         "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
-    //         "Godzina": "11:00 - 13:00",
-    //     };
-    //
-    //     try {
-    //         AsyncStorage.removeItem("wizyty");
-    //         let currentData = await AsyncStorage.getItem("wizyty");
-    //         if (currentData == null) {
-    //             currentData = [];
-    //         } else {
-    //             currentData = JSON.parse(currentData);
-    //         }
-    //         currentData.push(testjson);
-    //         currentData.push(testjson2);
-    //         currentData.push(testjson3);
-    //         const jsonValue = JSON.stringify(currentData);
-    //         await AsyncStorage.setItem(key, jsonValue);
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // }
-    //
+    const storeData = async (key) => {
+        const testjson = {
+            "id": 0,
+            "Imie": "test",
+            "Nazwisko": "TEST",
+            "NrTele": 123456789,
+            "Adres1": "Kiełce",
+            "Adres2": "25-001",
+            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+            "Godzina": "8:00 - 10:00",
+        };
+
+        const testjson2 = {
+            "id": 1,
+            "Imie": "tes4t",
+            "Nazwisko": "TEST",
+            "NrTele": 123456789,
+            "Adres1": "Kiełce",
+            "Adres2": "25-001",
+            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+            "Godzina": "10:00 - 11:00",
+        };
+
+        const testjson3 = {
+            "id": 3,
+            "Imie": "test2",
+            "Nazwisko": "TEST",
+            "NrTele": 123456789,
+            "Adres1": "Kiełce",
+            "Adres2": "25-001",
+            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+            "Godzina": "11:00 - 13:00",
+        };
+
+        try {
+            AsyncStorage.removeItem("wizyty");
+            AsyncStorage.removeItem("Stan pojazdu");
+            AsyncStorage.removeItem("naprawy");
+            let currentData = await AsyncStorage.getItem("wizyty");
+            if (currentData == null) {
+                currentData = [];
+            } else {
+                currentData = JSON.parse(currentData);
+            }
+            currentData.push(testjson);
+            currentData.push(testjson2);
+            currentData.push(testjson3);
+            const jsonValue = JSON.stringify(currentData);
+            await AsyncStorage.setItem(key, jsonValue);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     // storeData("wizyty");
 
     const validateLogin = (login, password) => {

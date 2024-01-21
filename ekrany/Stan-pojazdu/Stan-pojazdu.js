@@ -9,7 +9,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {LightSensor}  from "expo-sensors";
 
 export default function StanPojazdu({route, navigation}) {
-    const {item} = route.props;
+    const {item} = route.params;
 
     const [images] = useState([
         require('./Leon.png'),
@@ -35,6 +35,8 @@ export default function StanPojazdu({route, navigation}) {
 
         const naprawa = {
             id: item.id,
+            tablica: item.Tablica,
+            godzina: "8:00 - 10:00",
             naprawy: [{
                 1: "test",
                 2: "test1",
@@ -57,11 +59,21 @@ export default function StanPojazdu({route, navigation}) {
             console.log(e);
         }
 
-        navigation.navigate("Naprawy", {screen: "Naprawa"});
+        try {
+            let currentData = await AsyncStorage.getItem("wizyty");
+            currentData = JSON.parse(currentData);
+            currentData = currentData.filter(currentData => currentData.id !== item.id);
+            const jsonValue = JSON.stringify(currentData);
+            await AsyncStorage.setItem("wizyty", jsonValue);
+        } catch (e) {
+            console.log(e);
+        }
+
         navigation.reset({
             index: 0,
             routes: [{name: "Nadchodzące wizyty"}]
         });
+        navigation.navigate("Naprawy", {screen: "Naprawa"});
     }
 
     const anuluj = () => {

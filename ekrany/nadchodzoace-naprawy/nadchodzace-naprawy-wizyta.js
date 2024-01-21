@@ -1,18 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {LightSensor} from "expo-sensors";
 
-function Naprawa({navigation}) {
+function Naprawa({navigation, item}) {
     const goToNaprawa = () => {
-        navigation.navigate("Naprawa");
+        navigation.navigate("Naprawa", {item: item,});
     }
-    const [illuminance, setilluminance] = useState(0);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
-    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+
     return (
-        <TouchableOpacity style={aktywnystyl.container} activeOpacity={0.7} onPress={() => goToNaprawa()}>
-            <Text style={[aktywnystyl.text, aktywnystyl.bold]}>Jan Kowalski</Text>
-            <Text style={aktywnystyl.text}>8:00 - 10:00</Text>
+        <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={() => goToNaprawa()}>
+            <Text style={[styles.text, styles.bold]}>{item.tablica}</Text>
+            <Text style={styles.text}>{item.godzina}</Text>
         </TouchableOpacity>
     )
 }

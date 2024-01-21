@@ -1,31 +1,28 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useEffect, useState} from "react";
 import KontenerNaprawy from "./Kontener-naprawy";
 import Tytul from "../../ui/Tytul";
 import ButtonContainer from "../../ui/ButtonContainer";
 import DalejButton from "../../ui/DalejButton";
-import {LightSensor} from "expo-sensors";
 
-export default function PodgladNaprawyEkran({navigation}) {
+export default function PodgladNaprawyEkran({route,navigation}) {
+    const {item} = route.params;
     const zakaczNaprawe = () => {
         navigation.reset({
             index: 1,
-            routes: [{name: "nadchodzące naprawy"}]
+            routes: [{name: "Nadchodzące naprawy"}]
         });
     }
-    const [illuminance, setilluminance] = useState(0);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
-    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+
     return (
-        <View style={aktywnystyl.container}>
-            <Tytul text={"SCI 6174E"}/>
-            <View style={aktywnystyl.spacingContainer}>
+        <View style={styles.container}>
+            <Tytul text={item.tablica}/>
+            <View style={styles.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
-            <View style={aktywnystyl.spacingContainer}>
+            <View style={styles.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
-            <View style={aktywnystyl.spacingContainer}>
+            <View style={styles.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
             <ButtonContainer>
