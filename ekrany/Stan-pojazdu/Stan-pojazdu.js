@@ -6,6 +6,7 @@ import ButtonContainer from "../../ui/ButtonContainer";
 import Karuzela from "../../ui/Karuzela";
 import Tytul from "../../ui/Tytul";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {LightSensor}  from "expo-sensors";
 
 export default function StanPojazdu({route, navigation}) {
     const {item} = route.props;
@@ -68,14 +69,16 @@ export default function StanPojazdu({route, navigation}) {
     }
 
     const [stan, setStan] = useState("");
-
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text={"Stan pojazdu"}/>
 
             <Karuzela images={images} navigation={navigation}/>
 
-            <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu" onChange={setStan}/>
+            <TextInput style={aktywnystyl.textInput} placeholder="Opisz stan techniczny pojazdu" onChange={setStan}/>
 
             <ButtonContainer>
                 <PowrotButton action={anuluj}/>

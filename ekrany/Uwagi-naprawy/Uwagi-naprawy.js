@@ -5,6 +5,7 @@ import ButtonContainer from "../../ui/ButtonContainer";
 import PowrotButton from "../../ui/PowrotButton";
 import DalejButton from "../../ui/DalejButton";
 import Karuzela from "../../ui/Karuzela";
+import {LightSensor} from "expo-sensors";
 
 export default function UwagiNaprawy({navigation}) {
     const zapisz = () => {
@@ -18,14 +19,17 @@ export default function UwagiNaprawy({navigation}) {
         require('./Leon.png'),
         require('./Leon.png'),
     ]);
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
 
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text={"Uwagi"}/>
 
             <Karuzela images={images} navigation={navigation}/>
 
-            <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu"/>
+            <TextInput style={aktywnystyl.textInput} placeholder="Opisz stan techniczny pojazdu"/>
 
             <ButtonContainer>
                 <PowrotButton text={"Usuń"} action={usun}/>
