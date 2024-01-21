@@ -1,11 +1,20 @@
 import React, {useEffect, useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {LightSensor} from "expo-sensors";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function KontenerNaprawy({navigation, item}) {
 
-    const usunNaprawe = (satn) => {
-
+    const usunNaprawe = async () => {
+        try {
+            let currentData = await AsyncStorage.getItem("naprawy");
+            currentData = JSON.parse(currentData);
+            currentData.naprawy = currentData.naprawy.filter(currentData => currentData.id !== item.id);
+            const jsonValue = JSON.stringify(currentData);
+            await AsyncStorage.setItem("wizyty", jsonValue);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     const goToUwaginaprawa = () => {
