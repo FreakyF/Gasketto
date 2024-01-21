@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from "react-native";
 import DalejButton from "../../ui/DalejButton";
 import Tytul from "../../ui/Tytul";
 import InputMaly from "../../ui/InputMaly";
+import { LightSensor } from 'expo-sensors';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function LogowanieEkran({navigation}) {
@@ -72,9 +73,13 @@ function LogowanieEkran({navigation}) {
             setWarning(true);
         }
     }
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
 
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text="Logowanie"/>
             <InputMaly label="Login" onChange={setLogin}/>
             <InputMaly label="Hasło" onChange={setPassword}/>
