@@ -1,23 +1,38 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import {LightSensor} from "expo-sensors";
 
 function Wizyta({navigation, item}) {
+    const [illuminance, setIlluminance] = useState(0);
+
+    useEffect(() => {
+        const subscription = LightSensor.addListener(data => {
+            setIlluminance(data.illuminance);
+        });
+
+        LightSensor.setUpdateInterval(2000);
+
+        return () => {
+            subscription.remove();
+        };
+    }, []);
+
+    const aktywnyStyl = illuminance > 25 ? styles : Darkstyles;
+
     const goToWizyta = () => {
-        navigation.navigate("Wizyta", {item: item,});
-    }
-    const [illuminance, setilluminance] = useState(0);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
-    LightSensor.addListener(data => {setilluminance(data.illuminance)})
+        navigation.navigate("Wizyta", {item});
+    };
+
     return (
-        <TouchableOpacity style={aktywnystyl.container} activeOpacity={0.7} onPress={() => goToWizyta()}>
-            <Text style={[aktywnystyl.text, aktywnystyl.bold]}>{item.Imie} {item.Nazwisko}</Text>
-            <Text style={aktywnystyl.text}>{item.Godzina}</Text>
+        <TouchableOpacity style={aktywnyStyl.container} activeOpacity={0.7} onPress={goToWizyta}>
+            <Text style={[aktywnyStyl.text, aktywnyStyl.bold]}>{item.Imie} {item.Nazwisko}</Text>
+            <Text style={aktywnyStyl.text}>{item.Godzina}</Text>
         </TouchableOpacity>
-    )
+    );
 }
 
 export default Wizyta;
+
 
 const styles = StyleSheet.create({
     container: {
