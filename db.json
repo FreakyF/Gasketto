@@ -1,0 +1,6 @@
+{
+  "logowanie": [
+    {"login": "mechanik", "haslo": "gragitarami"},
+    {"login": "admin", "haslo": "admin"}
+  ]
+}

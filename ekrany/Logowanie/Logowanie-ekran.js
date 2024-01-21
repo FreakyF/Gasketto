@@ -8,6 +8,8 @@ import { LightSensor } from 'expo-sensors';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Wizyta from "../nadchodzoace-wizyty/nadchodzace-wizyty-wizyta";
 
+import axios from "axios";
+
 function LogowanieEkran({navigation}) {
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
@@ -16,34 +18,34 @@ function LogowanieEkran({navigation}) {
     const storeData = async (key) => {
         const testjson = {
             "id": 0,
-            "Imie": "Kamil",
-            "Nazwisko": "Fudala",
+            "Imie": "test",
+            "Nazwisko": "TEST",
             "NrTele": 123456789,
-            "Adres1": "Kielce",
+            "Adres1": "Kiełce",
             "Adres2": "25-001",
-            "Opis": "Problem z opadającą szybą",
+            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
             "Godzina": "8:00 - 10:00",
         };
 
         const testjson2 = {
             "id": 1,
-            "Imie": "Jan",
-            "Nazwisko": "Chojny",
+            "Imie": "tes4t",
+            "Nazwisko": "TEST",
             "NrTele": 123456789,
-            "Adres1": "Małogoszcz",
-            "Adres2": "28-366",
-            "Opis": "Pęknięta sprężyna w zawieszeniu",
+            "Adres1": "Kiełce",
+            "Adres2": "25-001",
+            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
             "Godzina": "10:00 - 11:00",
         };
 
         const testjson3 = {
             "id": 3,
-            "Imie": "Karolina",
-            "Nazwisko": "Dryło",
+            "Imie": "test2",
+            "Nazwisko": "TEST",
             "NrTele": 123456789,
-            "Adres1": "Busko-Zdrój",
-            "Adres2": "28-100",
-            "Opis": "Niskie ciśnienie w układzie hamulcowym",
+            "Adres1": "Kiełce",
+            "Adres2": "25-001",
+            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
             "Godzina": "11:00 - 13:00",
         };
 
@@ -70,17 +72,22 @@ function LogowanieEkran({navigation}) {
     // storeData("wizyty");
 
     const validateLogin = (login, password) => {
-        if (login === password) {
-            setWarning(false);
-            navigation.navigate("Home");
-        } else {
-            setWarning(true);
-        }
+        axios.get("http://192.168.0.133:3004/logowanie").then(res => {
+            res.data.forEach(dane => {
+                if (login === dane.login && password === dane.haslo) {
+                    setWarning(false);
+                    navigation.navigate("Home");
+                }
+            })
+        });
+        setWarning(true);
     }
     const renderItem = ({item}) => <Wizyta navigation={navigation} item={item}/>;
-    const [illuminance, setilluminance] = useState(26 );
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
-    LightSensor.addListener(data => {setilluminance(data.illuminance)})
+    LightSensor.addListener(data => {
+        setilluminance(data.illuminance)
+    })
     return (
         <View style={aktywnystyl.container}>
             <Tytul text="Logowanie"/>
