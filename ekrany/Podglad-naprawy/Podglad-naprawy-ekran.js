@@ -21,7 +21,7 @@ export default function PodgladNaprawyEkran({route, navigation}) {
             <Tytul text={item.tablica}/>
             <FlatList data={item.naprawy} renderItem={renderItem}/>
             <ButtonContainer>
-                <DalejButton text={"Zakończ naprawę"} action={zakaczNaprawe}/>
+                <DalejButton text={"Ok"} action={zakaczNaprawe}/>
             </ButtonContainer>
         </View>
     );

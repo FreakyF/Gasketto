@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FlatList, StyleSheet, View} from "react-native";
 import Wizyta from "./nadchodzace-wizyty-wizyta";
 import Tytul from "../../ui/Tytul";
@@ -24,7 +24,9 @@ function NadchodzaceWyzityEkran({navigation}) {
         setData(result);
     };
 
-    fetchData();
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const renderItem = ({item}) => <Wizyta navigation={navigation} item={item}/>;
     const [illuminance, setilluminance] = useState(0);

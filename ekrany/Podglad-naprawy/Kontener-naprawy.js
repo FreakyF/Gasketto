@@ -3,16 +3,23 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {LightSensor} from "expo-sensors";
 
 export default function KontenerNaprawy({navigation, item}) {
+
+    const usunNaprawe = (satn) => {
+
+    }
+
     const goToUwaginaprawa = () => {
         navigation.navigate("Uwagi naprawa");
     }
     const [illuminance, setilluminance] = useState(0);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
-    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
+    LightSensor.addListener(data => {
+        setilluminance(data.illuminance)
+    })
     return (
         <View style={aktywnystyl.repairContainer}>
-            <Text style={aktywnystyl.listItem}>List item</Text>
-            <Text style={aktywnystyl.description}>Supporting line text lorem ipsum dolor sit amet, consectetur.</Text>
+            <Text style={aktywnystyl.listItem}>{item.nazwa}</Text>
+            <Text style={aktywnystyl.description}>{item.opis}</Text>
             <Text style={aktywnystyl.doneText}>Czy wykonano:</Text>
             <View style={aktywnystyl.buttonContainer}>
                 <TouchableOpacity style={aktywnystyl.buttonLeft} activeOpacity={0.7} onPress={() => goToUwaginaprawa()}>
