@@ -6,7 +6,7 @@ function Naprawa({navigation, item}) {
     const goToNaprawa = () => {
         navigation.navigate("Naprawa", {item: item,});
     }
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {setilluminance(data.illuminance)})
     return (

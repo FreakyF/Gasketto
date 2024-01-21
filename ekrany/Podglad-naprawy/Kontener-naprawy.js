@@ -19,7 +19,7 @@ export default function KontenerNaprawy({navigation, item, id}) {
         }
     }
 
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {
         setilluminance(data.illuminance)

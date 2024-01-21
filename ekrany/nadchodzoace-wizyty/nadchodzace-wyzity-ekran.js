@@ -29,7 +29,7 @@ function NadchodzaceWyzityEkran({navigation}) {
     }, []);
 
     const renderItem = ({item}) => <Wizyta navigation={navigation} item={item}/>;
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
     LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (

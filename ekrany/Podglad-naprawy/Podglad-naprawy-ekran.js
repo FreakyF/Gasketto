@@ -18,7 +18,7 @@ export default function PodgladNaprawyEkran({route, navigation}) {
     }
 
     const renderItem = ({item}) => <KontenerNaprawy navigation={navigation} item={item} id={id}/>;
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {setilluminance(data.illuminance)})
     return (

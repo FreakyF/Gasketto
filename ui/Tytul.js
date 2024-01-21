@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {LightSensor} from "expo-sensors";
 
 export default function Tytul({text = "", size = 45}) {
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
     LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (

@@ -9,7 +9,7 @@ export default function InputMaly({label = "", onChange = null, placeholder = ""
             console.log("empty onchange");
         }
     }
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
     LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (

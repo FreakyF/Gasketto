@@ -32,7 +32,7 @@ function PodgladWizytyEkran({route, navigation}) {
         navigation.goBack();
     }
 
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : DarkStyles ;
     LightSensor.addListener(data => { setilluminance(data.illuminance)})
 

@@ -76,7 +76,7 @@ export default function StanPojazdu({route, navigation}) {
     }
 
     const [stan, setStan] = useState("");
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {
         setilluminance(data.illuminance)

@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import {LightSensor} from "expo-sensors";
 
 function Wizyta({navigation, item}) {
-    const [illuminance, setIlluminance] = useState(0);
+    const [illuminance, setIlluminance] = useState(26);
 
     useEffect(() => {
         const subscription = LightSensor.addListener(data => {

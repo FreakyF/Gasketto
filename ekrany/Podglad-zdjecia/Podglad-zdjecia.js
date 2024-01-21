@@ -13,7 +13,7 @@ export default function PodgladZdjecia({navigation}) {
     const usun = () => {
         navigation.goBack();
     }
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
     LightSensor.addListener(data => { setilluminance(data.illuminance)})
 

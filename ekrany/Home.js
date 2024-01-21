@@ -8,12 +8,12 @@ import {LightSensor} from "expo-sensors";
 
 function Home() {
     const Drawer = createDrawerNavigator();
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const zmianatla = illuminance > 25 ? '#fff' : '#000';
     LightSensor.addListener(data => {setilluminance(data.illuminance)})
     return (
             <Drawer.Navigator  initialRouteName="Wizyty" screenOptions={{swipeEdgeWidth: 50, drawerStyle: {backgroundColor: zmianatla}}}>
-                <Drawer.Screen name="Wizyty" component={Nadchodzace_wizyty_stack} options={{headerShown: false,}}/>
+                <Drawer.Screen name="Wizyty" component={Nadchodzace_wizyty_stack} options={{headerShown: false}}/>
                 <Drawer.Screen name="Naprawy" component={Nadchodzace_naprawy_stack} options={{headerShown: false}}/>
             </Drawer.Navigator>
     )

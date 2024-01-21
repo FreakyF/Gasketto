@@ -37,7 +37,7 @@ export default function DanePojazduEkran({route, navigation}) {
     const [vin, setVin] = useState("");
     const [rok, setRok] = useState("");
 
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
     LightSensor.addListener(data => { setilluminance(data.illuminance)})
 

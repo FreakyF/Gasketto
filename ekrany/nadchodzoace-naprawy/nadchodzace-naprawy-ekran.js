@@ -26,7 +26,7 @@ function NadchodzaceNaprawyEkran({navigation}) {
 
     const renderItem = ({item}) => <Naprawa navigation={navigation} item={item}/>;
 
-    const [illuminance, setilluminance] = useState(0);
+    const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {setilluminance(data.illuminance)})
     return (
