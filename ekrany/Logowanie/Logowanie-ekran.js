@@ -69,8 +69,6 @@ function LogowanieEkran({navigation}) {
 
     // storeData("wizyty");
 
-    //Test git
-
     const validateLogin = (login, password) => {
         if (login === password) {
             setWarning(false);

@@ -8,7 +8,8 @@ import React, {useEffect, useState} from "react";
 import {LightSensor} from "expo-sensors";
 
 export default function PodgladNaprawyEkran({route, navigation}) {
-    const {item} = route.params;
+    const {item} = route.params
+    const id = item.id;
     const zakaczNaprawe = () => {
         navigation.reset({
             index: 1,
@@ -16,7 +17,7 @@ export default function PodgladNaprawyEkran({route, navigation}) {
         });
     }
 
-    const renderItem = ({item}) => <KontenerNaprawy navigation={navigation} item={item}/>;
+    const renderItem = ({item}) => <KontenerNaprawy navigation={navigation} item={item} id={id}/>;
     const [illuminance, setilluminance] = useState(0);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {setilluminance(data.illuminance)})
