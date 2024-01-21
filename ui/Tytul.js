@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         textAlign: "center",
         margin: 20,
+        color: '#000',
     },
 });
 const Darkstyles = StyleSheet.create({
@@ -26,6 +27,6 @@ const Darkstyles = StyleSheet.create({
         fontFamily: 'Roboto',
         textAlign: "center",
         margin: 20,
-        color: '#ffffff',
+        color: '#fff',
     },
 });
