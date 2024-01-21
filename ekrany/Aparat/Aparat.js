@@ -1,5 +1,5 @@
 import {Button, StyleSheet, Text, TouchableOpacity, View, Dimensions} from 'react-native';
-import {useRef, useState} from "react";
+import {useRef} from "react";
 import {Camera, CameraType} from 'expo-camera';
 import * as MediaLibrary from "expo-media-library";
 import ButtonContainer from "../../ui/ButtonContainer";
