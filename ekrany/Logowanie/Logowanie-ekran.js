@@ -17,7 +17,7 @@ function LogowanieEkran({navigation}) {
         const testjson = {
             "id": 0,
             "Imie": "Kamil",
-            "Nazwisko": "Fudali",
+            "Nazwisko": "Fudala",
             "NrTele": 123456789,
             "Adres1": "Kielce",
             "Adres2": "25-001",
