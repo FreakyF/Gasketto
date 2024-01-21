@@ -5,6 +5,7 @@ import ButtonContainer from "../../ui/ButtonContainer";
 import Tytul from "../../ui/Tytul";
 import InputMaly from "../../ui/InputMaly";
 import {useState} from "react";
+import {LightSensor} from "expo-sensors";
 
 export default function DanePojazduEkran({route, navigation}) {
     const {item} = route.params;
@@ -34,15 +35,19 @@ export default function DanePojazduEkran({route, navigation}) {
     const [vin, setVin] = useState("");
     const [rok, setRok] = useState("");
 
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text="Dane pojazdu"/>
             <InputMaly label={"Marka"} placeholder={"Podaj markę"} onChange={setMarka}/>
             <InputMaly label={"Model"} placeholder={"Podaj model"} onChange={setModel}/>
             <InputMaly label={"Silnik"} placeholder={"Podaj silnik"} onChange={setSilnik}/>
 
-            <View style={styles.switchContainer}>
-                <Text style={styles.switchLabel}>Silnik w gazie</Text>
+            <View style={aktywnystyl.switchContainer}>
+                <Text style={aktywnystyl.switchLabel}>Silnik w gazie</Text>
                 <Switch
                     trackColor={{false: '#6f59ab', true: '#8154f7'}}
                     thumbColor={'#6750a4'}
