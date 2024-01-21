@@ -1,23 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {LightSensor} from "expo-sensors";
 
 export default function KontenerNaprawy({navigation}) {
     const goToUwaginaprawa = () => {
         navigation.navigate("Uwagi naprawa");
     }
-    
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (
-        <View style={styles.repairContainer}>
-            <Text style={styles.listItem}>List item</Text>
-            <Text style={styles.description}>Supporting line text lorem ipsum dolor sit amet, consectetur.</Text>
-            <Text style={styles.doneText}>Czy wykonano:</Text>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonLeft} activeOpacity={0.7} onPress={() => goToUwaginaprawa()}>
-                    <Text style={styles.buttonLeftText}>Uwagi</Text>
+        <View style={aktywnystyl.repairContainer}>
+            <Text style={aktywnystyl.listItem}>List item</Text>
+            <Text style={aktywnystyl.description}>Supporting line text lorem ipsum dolor sit amet, consectetur.</Text>
+            <Text style={aktywnystyl.doneText}>Czy wykonano:</Text>
+            <View style={aktywnystyl.buttonContainer}>
+                <TouchableOpacity style={aktywnystyl.buttonLeft} activeOpacity={0.7} onPress={() => goToUwaginaprawa()}>
+                    <Text style={aktywnystyl.buttonLeftText}>Uwagi</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.buttonMid} activeOpacity={0.7}>
-                    <Text style={styles.buttonMidText}>Nie</Text>
+                <TouchableOpacity style={aktywnystyl.buttonMid} activeOpacity={0.7}>
+                    <Text style={aktywnystyl.buttonMidText}>Nie</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7}>
