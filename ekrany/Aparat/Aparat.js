@@ -1,5 +1,5 @@
 import {Button, StyleSheet, Text, TouchableOpacity, View, Dimensions} from 'react-native';
-import {useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Camera, CameraType} from 'expo-camera';
 import * as MediaLibrary from "expo-media-library";
 import ButtonContainer from "../../ui/ButtonContainer";
@@ -31,19 +31,40 @@ function CameraButton({onPress}) {
 }
 
 export default function Aparat({navigation}) {
-    const [permission, requestPermission] = Camera.requestCameraPermissionsAsync();
-    const [mediaPermission, requestMediaPermission] = MediaLibrary.usePermissions();
+    const getCameraPermission = async () => {
+        const { status } = await Camera.requestCameraPermissionsAsync();
+        return status;
+    };
+
+    const getMediaPermission = async () => {
+        const { status } = await MediaLibrary.requestPermissionsAsync();
+        return status;
+    };
+
+    const [permission, setPermission] = useState(null);
+    const [mediaPermission, setMediaPermission] = useState(null);
     const cameraRef = useRef(null);
 
-    if (!permission || !mediaPermission) {
-        return <View/>;
+    useEffect(() => {
+        const fetchPermissions = async () => {
+            const cameraStatus = await getCameraPermission();
+            const mediaStatus = await getMediaPermission();
+            setPermission(cameraStatus);
+            setMediaPermission(mediaStatus);
+        };
+
+        fetchPermissions();
+    }, []);
+
+    if (permission === null || mediaPermission === null) {
+        return <View />;
     }
 
-    if (!permission.granted || !mediaPermission.granted) {
+    if (permission !== 'granted' || mediaPermission !== 'granted') {
         return (
             <PermissionMessage
-                requestCameraPermission={requestPermission}
-                requestMediaPermission={requestMediaPermission}
+                requestCameraPermission={getCameraPermission}
+                requestMediaPermission={getMediaPermission}
             />
         );
     }

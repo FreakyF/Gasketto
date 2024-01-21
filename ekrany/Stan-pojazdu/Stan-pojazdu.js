@@ -85,7 +85,7 @@ export default function StanPojazdu({route, navigation}) {
 
             <Karuzela images={images} navigation={navigation}/>
 
-            <TextInput style={aktywnystyl.textInput} placeholder="Opisz stan techniczny pojazdu" onChange={setStan}/>
+            <TextInput style={aktywnystyl.textInput} placeholder="Opisz stan techniczny pojazdu" onChangeText={(text) => setStan(text)}/>
 
             <ButtonContainer>
                 <PowrotButton action={anuluj}/>
