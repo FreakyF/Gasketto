@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import React, { useState} from "react";
+import {FlatList, StyleSheet, View} from "react-native";
 import Wizyta from "./nadchodzace-wizyty-wizyta";
 import Tytul from "../../ui/Tytul";
 import Linia from "../../ui/Linia";
@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 });
 
