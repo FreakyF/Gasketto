@@ -4,6 +4,7 @@ import Wizyta from "./nadchodzace-wizyty-wizyta";
 import Tytul from "../../ui/Tytul";
 import Linia from "../../ui/Linia";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {LightSensor} from "expo-sensors";
 
 function NadchodzaceWyzityEkran({navigation}) {
     const readData = async (key) => {
@@ -26,9 +27,11 @@ function NadchodzaceWyzityEkran({navigation}) {
     fetchData();
 
     const renderItem = ({item}) => <Wizyta navigation={navigation} item={item}/>;
-
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text="Nadchodzące wizyty"/>
             <Linia text="Dzisiaj"/>
             <FlatList data={data} renderItem={renderItem}/>

@@ -2,6 +2,8 @@ import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import ButtonContainer from "../../ui/ButtonContainer";
 import PowrotButton from "../../ui/PowrotButton";
 import DalejButton from "../../ui/DalejButton";
+import React, {useEffect, useState} from "react";
+import {LightSensor} from "expo-sensors";
 
 export default function PodgladZdjecia({navigation}) {
     const powrot = () => {
@@ -11,14 +13,16 @@ export default function PodgladZdjecia({navigation}) {
     const usun = () => {
         navigation.goBack();
     }
-
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
 
     return (
-        <View style={styles.container}>
-            <View style={styles.headerContainer}>
+        <View style={aktywnystyl.container}>
+            <View style={aktywnystyl.headerContainer}>
                 <View>
-                    <Text style={styles.texts}>10-9-2022</Text>
-                    <Text style={styles.texts}>8:35</Text>
+                    <Text style={aktywnystyl.texts}>10-9-2022</Text>
+                    <Text style={aktywnystyl.texts}>8:35</Text>
                 </View>
                 <PowrotButton text={"Usuń"} action={usun}/>
             </View>
