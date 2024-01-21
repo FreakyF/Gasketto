@@ -12,7 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 function PodgladWizytyEkran({route, navigation}) {
     const {item} = route.params;
     const rozpocznij = () => {
-        navigation.navigate("Dane pojazdu", {item: item});
+        navigation.navigate("Dane pojazdu", {item: item,});
     }
 
     const deleteId = async () => {

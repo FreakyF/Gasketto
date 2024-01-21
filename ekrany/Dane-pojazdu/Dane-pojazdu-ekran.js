@@ -14,6 +14,7 @@ export default function DanePojazduEkran({route, navigation}) {
             "id": item.id,
             "Marka": marka,
             "Model": model,
+            "Tablica": tablica,
             "Silnik": silnik,
             "Gaz": gaz,
             "VIN": vin,
@@ -29,6 +30,7 @@ export default function DanePojazduEkran({route, navigation}) {
 
     const [marka, setMarka] = useState("");
     const [model, setModel] = useState("");
+    const [tablica, setTablica] = useState("");
     const [silnik, setSilnik] = useState("nie");
     const [gaz, setGaz] = useState("");
     const [vin, setVin] = useState("");
@@ -39,6 +41,7 @@ export default function DanePojazduEkran({route, navigation}) {
             <Tytul text="Dane pojazdu"/>
             <InputMaly label={"Marka"} placeholder={"Podaj markę"} onChange={setMarka}/>
             <InputMaly label={"Model"} placeholder={"Podaj model"} onChange={setModel}/>
+            <InputMaly label={"Tablica rejestracyjna"} placeholder={"Podaj nr. tablicy"} onChange={setTablica}/>
             <InputMaly label={"Silnik"} placeholder={"Podaj silnik"} onChange={setSilnik}/>
 
             <View style={styles.switchContainer}>
