@@ -4,22 +4,42 @@ import DalejButton from "../../ui/DalejButton";
 import ButtonContainer from "../../ui/ButtonContainer";
 import Tytul from "../../ui/Tytul";
 import InputMaly from "../../ui/InputMaly";
+import {useState} from "react";
 
-export default function DanePojazduEkran({navigation}) {
+export default function DanePojazduEkran({route, navigation}) {
+    const {item} = route.params;
+
     const dalej = () => {
-        navigation.navigate("Stan pojazdu");
+        const testjson = {
+            "id": item.id,
+            "Marka": marka,
+            "Model": model,
+            "Silnik": silnik,
+            "Gaz": gaz,
+            "VIN": vin,
+            "Rok": rok,
+            "Stan": "",
+        };
+        navigation.navigate("Stan pojazdu"); // TODO
     }
 
     const anuluj = () => {
         navigation.goBack();
     }
 
+    const [marka, setMarka] = useState("");
+    const [model, setModel] = useState("");
+    const [silnik, setSilnik] = useState("nie");
+    const [gaz, setGaz] = useState("");
+    const [vin, setVin] = useState("");
+    const [rok, setRok] = useState("");
+
     return (
         <View style={styles.container}>
             <Tytul text="Dane pojazdu"/>
-            <InputMaly label={"Marka"} placeholder={"Podaj markę"}/>
-            <InputMaly label={"Model"} placeholder={"Podaj model"}/>
-            <InputMaly label={"Silnik"} placeholder={"Podaj silnik"}/>
+            <InputMaly label={"Marka"} placeholder={"Podaj markę"} onChange={setMarka}/>
+            <InputMaly label={"Model"} placeholder={"Podaj model"} onChange={setModel}/>
+            <InputMaly label={"Silnik"} placeholder={"Podaj silnik"} onChange={setSilnik}/>
 
             <View style={styles.switchContainer}>
                 <Text style={styles.switchLabel}>Silnik w gazie</Text>
@@ -29,9 +49,8 @@ export default function DanePojazduEkran({navigation}) {
                 />
             </View>
 
-
-            <InputMaly label={"VIN"} placeholder={"Podaj VIN"}/>
-            <InputMaly label={"Rok produkcji"} placeholder={"Podaj rok produkcji"}/>
+            <InputMaly label={"VIN"} placeholder={"Podaj VIN"} onChange={setVin}/>
+            <InputMaly label={"Rok produkcji"} placeholder={"Podaj rok produkcji"} onChange={setRok}/>
 
             <ButtonContainer>
                 <PowrotButton action={anuluj}/>
