@@ -16,34 +16,34 @@ function LogowanieEkran({navigation}) {
     const storeData = async (key) => {
         const testjson = {
             "id": 0,
-            "Imie": "test",
-            "Nazwisko": "TEST",
+            "Imie": "Kamil",
+            "Nazwisko": "Fudali",
             "NrTele": 123456789,
-            "Adres1": "Kiełce",
+            "Adres1": "Kielce",
             "Adres2": "25-001",
-            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+            "Opis": "Problem z opadającą szybą",
             "Godzina": "8:00 - 10:00",
         };
 
         const testjson2 = {
             "id": 1,
-            "Imie": "tes4t",
-            "Nazwisko": "TEST",
+            "Imie": "Jan",
+            "Nazwisko": "Chojny",
             "NrTele": 123456789,
-            "Adres1": "Kiełce",
-            "Adres2": "25-001",
-            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+            "Adres1": "Małogoszcz",
+            "Adres2": "28-366",
+            "Opis": "Pęknięta sprężyna w zawieszeniu",
             "Godzina": "10:00 - 11:00",
         };
 
         const testjson3 = {
             "id": 3,
-            "Imie": "test2",
-            "Nazwisko": "TEST",
+            "Imie": "Karolina",
+            "Nazwisko": "Dryło",
             "NrTele": 123456789,
-            "Adres1": "Kiełce",
-            "Adres2": "25-001",
-            "Opis": "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
+            "Adres1": "Busko-Zdrój",
+            "Adres2": "28-100",
+            "Opis": "Niskie ciśnienie w układzie hamulcowym",
             "Godzina": "11:00 - 13:00",
         };
 
@@ -87,7 +87,7 @@ function LogowanieEkran({navigation}) {
             <InputMaly label="Login" onChange={setLogin}/>
             <InputMaly label="Hasło" onChange={setPassword}/>
             <DalejButton action={() => validateLogin(login, password)} text={"Zaloguj"}/>
-            {warning ? <Text style = {aktywnystyl.tekst}>Nie poprawny login lub hasło</Text> : null}
+            {warning ? <Text style = {aktywnystyl.tekst}>Niepoprawny login lub hasło</Text> : null}
         </View>
     )
 }
