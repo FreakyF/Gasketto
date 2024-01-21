@@ -7,7 +7,7 @@ import { LightSensor } from "expo-sensors";
 
 function Home() {
     const Drawer = createDrawerNavigator();
-    const [illuminance, setIlluminance] = useState(0);
+    const [illuminance, setIlluminance] = useState(26);
     const zmianatla = illuminance > 25 ? '#fff' : '#000';  // Kolor tła
     const tekstKolor = illuminance > 25 ? '#000' : '#fff';  // Kolor tekstu
 
