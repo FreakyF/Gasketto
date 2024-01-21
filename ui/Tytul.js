@@ -1,9 +1,14 @@
 import {StyleSheet, Text} from "react-native";
+import React, {useEffect, useState} from "react";
+import {LightSensor} from "expo-sensors";
 
 export default function Tytul({text = "", size = 45}) {
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (
         <>
-            <Text style={{...styles.titletext, fontSize: size}}>{text}</Text>
+            <Text style={{...aktywnystyl.titletext, fontSize: size}}>{text}</Text>
         </>
     )
 }
