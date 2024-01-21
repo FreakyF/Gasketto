@@ -1,27 +1,73 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image } from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, Image} from 'react-native';
 import DalejButton from "../../ui/DalejButton";
 import PowrotButton from "../../ui/PowrotButton";
 import ButtonContainer from "../../ui/ButtonContainer";
 import Karuzela from "../../ui/Karuzela";
 import Tytul from "../../ui/Tytul";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function StanPojazdu({navigation}) {
+export default function StanPojazdu({route, navigation}) {
+    const {item} = route.props;
+
     const [images] = useState([
         require('./Leon.png'),
         require('./Leon.png'),
         require('./Leon.png'),
     ]);
 
-    const dalej = () => {
+    const dalej = async () => {
+        item.Stan = stan;
+        try {
+            let currentData = await AsyncStorage.getItem("stan_pojazdu");
+            if (currentData == null) {
+                currentData = [];
+            } else {
+                currentData = JSON.parse(currentData);
+            }
+            currentData.push(item);
+            const jsonValue = JSON.stringify(currentData);
+            await AsyncStorage.setItem("stan_pojazdu", jsonValue);
+        } catch (e) {
+            console.log(e);
+        }
+
+        const naprawa = {
+            id: item.id,
+            naprawy: [{
+                1: "test",
+                2: "test1",
+                3: "test2",
+                4: "test3",
+            }]
+        }
+
+        try {
+            let currentData = await AsyncStorage.getItem("naprawy");
+            if (currentData == null) {
+                currentData = [];
+            } else {
+                currentData = JSON.parse(currentData);
+            }
+            currentData.push(naprawa);
+            const jsonValue = JSON.stringify(currentData);
+            await AsyncStorage.setItem("naprawy", jsonValue);
+        } catch (e) {
+            console.log(e);
+        }
+
         navigation.navigate("Naprawy", {screen: "Naprawa"});
-        navigation.reset({index: 0,
-        routes: [{name: "Nadchodzące wizyty"}]});
+        navigation.reset({
+            index: 0,
+            routes: [{name: "Nadchodzące wizyty"}]
+        });
     }
 
     const anuluj = () => {
         navigation.goBack();
     }
+
+    const [stan, setStan] = useState("");
 
     return (
         <View style={styles.container}>
@@ -29,7 +75,7 @@ export default function StanPojazdu({navigation}) {
 
             <Karuzela images={images} navigation={navigation}/>
 
-            <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu" />
+            <TextInput style={styles.textInput} placeholder="Opisz stan techniczny pojazdu" onChange={setStan}/>
 
             <ButtonContainer>
                 <PowrotButton action={anuluj}/>

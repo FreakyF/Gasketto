@@ -20,7 +20,7 @@ export default function DanePojazduEkran({route, navigation}) {
             "Rok": rok,
             "Stan": "",
         };
-        navigation.navigate("Stan pojazdu"); // TODO
+        navigation.navigate("Stan pojazdu",{item: testjson});
     }
 
     const anuluj = () => {
