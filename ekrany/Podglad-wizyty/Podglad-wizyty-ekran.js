@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import {StyleSheet, Text, View} from "react-native";
 import DalejButton from "../../ui/DalejButton";
@@ -33,7 +33,7 @@ function PodgladWizytyEkran({route, navigation}) {
     }
 
     const [illuminance, setilluminance] = useState(0);
-    const aktywnystyl = illuminance > 25 ? styles : DarkStyles ;
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
     LightSensor.addListener(data => { setilluminance(data.illuminance)})
 
     return (
