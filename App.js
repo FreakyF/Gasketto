@@ -4,8 +4,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import LogowanieEkran from "./ekrany/Logowanie/Logowanie-ekran";
 import Home from "./ekrany/Home";
-LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
-LogBox.ignoreAllLogs();//Ignore all log notifications
+
 
 export default function App() {
     const Stack = createNativeStackNavigator();
