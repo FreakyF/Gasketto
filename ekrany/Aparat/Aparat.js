@@ -30,7 +30,7 @@ function CameraButton({onPress}) {
     );
 }
 
-export default function Aparat({route, navigation, id}) {
+export default function Aparat({route, navigation}) {
     const {item} = route.params;
     const getCameraPermission = async () => {
         const {status} = await Camera.requestCameraPermissionsAsync();
@@ -89,7 +89,7 @@ export default function Aparat({route, navigation, id}) {
     }
 
     const anuluj = () => {
-        navigation.goBack({item: item,});
+        navigation.goBack();
     }
 
     return (

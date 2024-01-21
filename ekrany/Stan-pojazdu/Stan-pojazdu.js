@@ -11,12 +11,6 @@ import {LightSensor} from "expo-sensors";
 export default function StanPojazdu({route, navigation}) {
     const {item} = route.params;
 
-    const [images] = useState([
-        require('./Leon.png'),
-        require('./Leon.png'),
-        require('./Leon.png'),
-    ]);
-
     const dalej = async () => {
         item.Stan = stan;
         try {
@@ -85,7 +79,7 @@ export default function StanPojazdu({route, navigation}) {
         <View style={aktywnystyl.container}>
             <Tytul text={"Stan pojazdu"}/>
 
-            <Karuzela images={images} navigation={navigation} item={item}/>
+            <Karuzela navigation={navigation} item={item}/>
 
             <TextInput
                 style={aktywnystyl.textInput}

@@ -5,7 +5,8 @@ import DalejButton from "../../ui/DalejButton";
 import React, {useEffect, useState} from "react";
 import {LightSensor} from "expo-sensors";
 
-export default function PodgladZdjecia({navigation}) {
+export default function PodgladZdjecia({route, navigation}) {
+    const {image} = route.params;
     const powrot = () => {
         navigation.goBack();
     }
@@ -14,8 +15,10 @@ export default function PodgladZdjecia({navigation}) {
         navigation.goBack();
     }
     const [illuminance, setilluminance] = useState(26);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
-    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
+    LightSensor.addListener(data => {
+        setilluminance(data.illuminance)
+    })
 
     return (
         <View style={aktywnystyl.container}>
@@ -28,8 +31,8 @@ export default function PodgladZdjecia({navigation}) {
             </View>
 
             <Image
-                source={require('./Leon.png')}
-                style={{ width: 376, height: 616 }}
+                source={{uri: image}}
+                style={{width: 376, height: 616}}
             />
 
             <ButtonContainer>
@@ -106,7 +109,7 @@ const Darkstyles = StyleSheet.create({
         marginBottom: 10,
     },
     texts: {
-      color: '#e4e4e4'
+        color: '#e4e4e4'
     },
     buttonContainer: {
         flexDirection: 'row',
