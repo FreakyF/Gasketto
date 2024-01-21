@@ -1,9 +1,11 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {LogBox, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import LogowanieEkran from "./ekrany/Logowanie/Logowanie-ekran";
 import Home from "./ekrany/Home";
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 export default function App() {
     const Stack = createNativeStackNavigator();
