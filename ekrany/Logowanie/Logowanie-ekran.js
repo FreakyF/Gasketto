@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from "react-native";
 import DalejButton from "../../ui/DalejButton";
 import Tytul from "../../ui/Tytul";
 import InputMaly from "../../ui/InputMaly";
-import { LightSensor } from 'expo-sensors';
+import {LightSensor} from 'expo-sensors';
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Wizyta from "../nadchodzoace-wizyty/nadchodzace-wizyty-wizyta";
@@ -79,7 +79,7 @@ function LogowanieEkran({navigation}) {
                     navigation.navigate("Home");
                 }
             })
-        });
+        }).catch(e => console.log(e));
         setWarning(true);
     }
     const renderItem = ({item}) => <Wizyta navigation={navigation} item={item}/>;
@@ -94,7 +94,7 @@ function LogowanieEkran({navigation}) {
             <InputMaly label="Login" onChange={setLogin}/>
             <InputMaly label="Hasło" onChange={setPassword}/>
             <DalejButton action={() => validateLogin(login, password)} text={"Zaloguj"}/>
-            {warning ? <Text style = {aktywnystyl.tekst}>Niepoprawny login lub hasło</Text> : null}
+            {warning ? <Text style={aktywnystyl.tekst}>Niepoprawny login lub hasło</Text> : null}
         </View>
     )
 }
