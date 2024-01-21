@@ -85,7 +85,7 @@ export default function StanPojazdu({route, navigation}) {
         <View style={aktywnystyl.container}>
             <Tytul text={"Stan pojazdu"}/>
 
-            <Karuzela images={images} navigation={navigation}/>
+            <Karuzela images={images} navigation={navigation} item={item}/>
 
             <TextInput
                 style={aktywnystyl.textInput}

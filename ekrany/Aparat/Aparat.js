@@ -30,14 +30,15 @@ function CameraButton({onPress}) {
     );
 }
 
-export default function Aparat({navigation}) {
+export default function Aparat({route, navigation, id}) {
+    const {item} = route.params;
     const getCameraPermission = async () => {
-        const { status } = await Camera.requestCameraPermissionsAsync();
+        const {status} = await Camera.requestCameraPermissionsAsync();
         return status;
     };
 
     const getMediaPermission = async () => {
-        const { status } = await MediaLibrary.requestPermissionsAsync();
+        const {status} = await MediaLibrary.requestPermissionsAsync();
         return status;
     };
 
@@ -57,7 +58,7 @@ export default function Aparat({navigation}) {
     }, []);
 
     if (permission === null || mediaPermission === null) {
-        return <View />;
+        return <View/>;
     }
 
     if (permission !== 'granted' || mediaPermission !== 'granted') {
@@ -80,13 +81,7 @@ export default function Aparat({navigation}) {
     }
 
     async function zapiszUriZdjecia(photoUri) {
-        const istniejaceDane = await AsyncStorage.getItem('Zdjecia');
-        const daneJson = istniejaceDane ? JSON.parse(istniejaceDane) : {};
-
-        daneJson.Zdjecia = daneJson.Zdjecia || [];
-        daneJson.Zdjecia.push(photoUri);
-
-        await AsyncStorage.setItem('Zdjecia', JSON.stringify(daneJson));
+        item.Zdjecia.push(photoUri)
     }
 
     const dalej = () => {
@@ -94,7 +89,7 @@ export default function Aparat({navigation}) {
     }
 
     const anuluj = () => {
-        navigation.goBack();
+        navigation.goBack({item: item,});
     }
 
     return (

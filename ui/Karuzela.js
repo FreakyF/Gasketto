@@ -1,8 +1,8 @@
 import {Image, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
 
-export default function Karuzela({images, navigation}) {
+export default function Karuzela({images, navigation, item}) {
     const goToCamera = () => {
-        navigation.navigate("Aparat");
+        navigation.navigate("Aparat", {item: item,});
     }
 
     const goToZdjecie = () => {
@@ -12,7 +12,7 @@ export default function Karuzela({images, navigation}) {
     return (
         <View style={styles.imageSlider}>
             <ScrollView horizontal>
-                {images.map((image, index) => (
+                {item.Zdjecia.map((image, index) => (
                     <TouchableOpacity key={index} activeOpacity={0.7} onPress={() => goToZdjecie()}>
                         <Image source={image} style={styles.image}/>
                     </TouchableOpacity>

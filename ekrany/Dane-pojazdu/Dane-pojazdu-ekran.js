@@ -21,6 +21,7 @@ export default function DanePojazduEkran({route, navigation}) {
             "VIN": vin,
             "Rok": rok,
             "Stan": "",
+            "Zdjecia" : [],
         };
         navigation.navigate("Stan pojazdu",{item: testjson});
     }
