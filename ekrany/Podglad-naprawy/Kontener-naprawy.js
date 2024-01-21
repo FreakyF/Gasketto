@@ -44,6 +44,7 @@ export default function KontenerNaprawy({navigation, item}) {
                 </TouchableOpacity>
             </View>
         </View>
+
     );
 };
 const styles = StyleSheet.create({

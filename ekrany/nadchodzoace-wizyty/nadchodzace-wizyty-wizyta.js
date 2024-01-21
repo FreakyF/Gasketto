@@ -7,8 +7,8 @@ function Wizyta({navigation, item}) {
         navigation.navigate("Wizyta", {item: item,});
     }
     const [illuminance, setilluminance] = useState(0);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
-    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
+    LightSensor.addListener(data => {setilluminance(data.illuminance)})
     return (
         <TouchableOpacity style={aktywnystyl.container} activeOpacity={0.7} onPress={() => goToWizyta()}>
             <Text style={[aktywnystyl.text, aktywnystyl.bold]}>{item.Imie} {item.Nazwisko}</Text>

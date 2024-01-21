@@ -4,6 +4,8 @@ import Tytul from "../../ui/Tytul";
 import ButtonContainer from "../../ui/ButtonContainer";
 import DalejButton from "../../ui/DalejButton";
 import Naprawa from "../nadchodzoace-naprawy/nadchodzace-naprawy-wizyta";
+import React, {useEffect, useState} from "react";
+import {LightSensor} from "expo-sensors";
 
 export default function PodgladNaprawyEkran({route, navigation}) {
     const {item} = route.params;
@@ -15,9 +17,11 @@ export default function PodgladNaprawyEkran({route, navigation}) {
     }
 
     const renderItem = ({item}) => <KontenerNaprawy navigation={navigation} item={item}/>;
-
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
+    LightSensor.addListener(data => {setilluminance(data.illuminance)})
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text={item.tablica}/>
             <FlatList data={item.naprawy} renderItem={renderItem}/>
             <ButtonContainer>
