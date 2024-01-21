@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { LightSensor } from "expo-sensors";
 
-export default function InputMaly({label = "", onChange = null, placeholder = ""}) {
+export default function InputMaly({label = "", onChange = null, placeholder = "", secureTextEntry = false}) {
     if (onChange == null){
         onChange = () => {
             console.log("empty onchange");
@@ -31,6 +31,7 @@ export default function InputMaly({label = "", onChange = null, placeholder = ""
                 onChangeText={newText => onChange(newText)}
                 placeholder={placeholder}
                 placeholderTextColor={aktywnyStyl.placeholderColor}
+                secureTextEntry={secureTextEntry}
             />
         </View>
     );
