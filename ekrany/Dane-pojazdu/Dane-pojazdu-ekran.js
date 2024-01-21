@@ -98,7 +98,6 @@ const Darkstyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-
         width: 204
     },
     switchLabel: {

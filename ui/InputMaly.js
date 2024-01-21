@@ -1,7 +1,6 @@
-import Tytul from "./Tytul";
-import {StyleSheet, Text, TextInput, View} from "react-native";
-import React, {useEffect, useState} from "react";
-import {LightSensor} from "expo-sensors";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, TextInput, View } from "react-native";
+import { LightSensor } from "expo-sensors";
 
 export default function InputMaly({label = "", onChange = null, placeholder = ""}) {
     if (onChange == null){
@@ -9,17 +8,33 @@ export default function InputMaly({label = "", onChange = null, placeholder = ""
             console.log("empty onchange");
         }
     }
-    const [illuminance, setilluminance] = useState(26);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
-    LightSensor.addListener(data => { setilluminance(data.illuminance)})
-    return (
-        <View style={aktywnystyl.container}>
-            <Text style={aktywnystyl.textinputlabel}>{label}</Text>
-            <TextInput style={aktywnystyl.textinput} onChangeText={newText => onChange(newText)} placeholder={placeholder}/>
-        </View>
-    )
-}
 
+    const [illuminance, setIlluminance] = useState(0);
+
+    useEffect(() => {
+        const subscription = LightSensor.addListener(data => {
+            setIlluminance(data.illuminance);
+        });
+
+        return () => {
+            subscription.remove();
+        };
+    }, []);
+
+    const aktywnyStyl = illuminance > 25 ? styles : Darkstyles;
+
+    return (
+        <View style={aktywnyStyl.container}>
+            <Text style={aktywnyStyl.textinputlabel}>{label}</Text>
+            <TextInput
+                style={aktywnyStyl.textinput}
+                onChangeText={newText => onChange(newText)}
+                placeholder={placeholder}
+                placeholderTextColor={aktywnyStyl.placeholderColor}
+            />
+        </View>
+    );
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -42,6 +57,7 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         padding: 10,
     },
+    placeholderColor: '#49454F',
 });
 
 const Darkstyles = StyleSheet.create({
@@ -66,4 +82,5 @@ const Darkstyles = StyleSheet.create({
         borderColor: '#ccc',
         padding: 10,
     },
+    placeholderColor: '#c9c9c9',
 });

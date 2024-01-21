@@ -87,8 +87,12 @@ export default function StanPojazdu({route, navigation}) {
 
             <Karuzela images={images} navigation={navigation}/>
 
-            <TextInput style={aktywnystyl.textInput} placeholder="Opisz stan techniczny pojazdu"
-                       onChangeText={(text) => setStan(text)}/>
+            <TextInput
+                style={aktywnystyl.textInput}
+                placeholder="Opisz stan techniczny pojazdu"
+                onChangeText={(text) => setStan(text)}
+                placeholderTextColor={aktywnystyl.placeholderColor} // Dodane
+            />
 
             <ButtonContainer>
                 <PowrotButton action={anuluj}/>
@@ -118,6 +122,7 @@ const styles = StyleSheet.create({
         width: 350,
         height: 250,
     },
+    placeholderColor: '#49454F',
 });
 
 const Darkstyles = StyleSheet.create({
@@ -141,5 +146,6 @@ const Darkstyles = StyleSheet.create({
         width: 350,
         height: 250,
     },
+    placeholderColor: '#e4e4e4',
 });
 
