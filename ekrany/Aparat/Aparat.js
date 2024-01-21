@@ -5,6 +5,7 @@ import * as MediaLibrary from "expo-media-library";
 import ButtonContainer from "../../ui/ButtonContainer";
 import PowrotButton from "../../ui/PowrotButton";
 import DalejButton from "../../ui/DalejButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 function PermissionMessage({requestCameraPermission, requestMediaPermission}) {
@@ -52,8 +53,19 @@ export default function Aparat({navigation}) {
             const photo = await cameraRef.current.takePictureAsync();
             if (photo) {
                 await MediaLibrary.saveToLibraryAsync(photo.uri);
+                await zapiszUriZdjecia(photo.uri);
             }
         }
+    }
+
+    async function zapiszUriZdjecia(photoUri) {
+        const istniejaceDane = await AsyncStorage.getItem('Zdjecia');
+        const daneJson = istniejaceDane ? JSON.parse(istniejaceDane) : {};
+
+        daneJson.Zdjecia = daneJson.Zdjecia || [];
+        daneJson.Zdjecia.push(photoUri);
+
+        await AsyncStorage.setItem('Zdjecia', JSON.stringify(daneJson));
     }
 
     const dalej = () => {
