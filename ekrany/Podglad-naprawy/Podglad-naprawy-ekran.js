@@ -1,8 +1,10 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useState} from "react";
 import KontenerNaprawy from "./Kontener-naprawy";
 import Tytul from "../../ui/Tytul";
 import ButtonContainer from "../../ui/ButtonContainer";
 import DalejButton from "../../ui/DalejButton";
+import {LightSensor} from "expo-sensors";
 
 export default function PodgladNaprawyEkran({navigation}) {
     const zakaczNaprawe = () => {
@@ -11,17 +13,19 @@ export default function PodgladNaprawyEkran({navigation}) {
             routes: [{name: "nadchodzące naprawy"}]
         });
     }
-
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text={"SCI 6174E"}/>
-            <View style={styles.spacingContainer}>
+            <View style={aktywnystyl.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
-            <View style={styles.spacingContainer}>
+            <View style={aktywnystyl.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
-            <View style={styles.spacingContainer}>
+            <View style={aktywnystyl.spacingContainer}>
                 <KontenerNaprawy navigation={navigation}/>
             </View>
             <ButtonContainer>

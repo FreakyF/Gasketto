@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import {StyleSheet, Text, View} from "react-native";
 import DalejButton from "../../ui/DalejButton";
@@ -7,7 +7,7 @@ import ButtonContainer from "../../ui/ButtonContainer";
 import Tytul from "../../ui/Tytul";
 import Linia from "../../ui/Linia";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import {LightSensor} from "expo-sensors";
 
 function PodgladWizytyEkran({route, navigation}) {
     const {item} = route.params;
@@ -32,17 +32,21 @@ function PodgladWizytyEkran({route, navigation}) {
         navigation.goBack();
     }
 
+    const [illuminance, setilluminance] = useState(0);
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
+    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+
     return (
-        <View style={styles.container}>
+        <View style={aktywnystyl.container}>
             <Tytul text={item.Godzina}/>
             <Linia text="Dane Klienta"/>
-            <Text style={styles.textstyle}>{item.Imie} {item.Nazwisko}</Text>
-            <Text style={styles.textstyle}>{item.NrTele}</Text>
-            <Text style={styles.textstyle}>{item.Adres1}</Text>
-            <Text style={styles.textstyle}>{item.Adres2}</Text>
+            <Text style={aktywnystyl.textstyle}>{item.Imie} {item.Nazwisko}</Text>
+            <Text style={aktywnystyl.textstyle}>{item.NrTele}</Text>
+            <Text style={aktywnystyl.textstyle}>{item.Adres1}</Text>
+            <Text style={aktywnystyl.textstyle}>{item.Adres2}</Text>
             <Linia text="Opis wizyty"/>
-            <View style={styles.textview}>
-                <Text style={styles.textcontainer}>
+            <View style={aktywnystyl.textview}>
+                <Text style={aktywnystyl.textcontainer}>
                     {item.Opis}
                 </Text>
             </View>
