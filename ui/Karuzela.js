@@ -9,7 +9,7 @@ export default function Karuzela({navigation, item}) {
     }
 
     const goToZdjecie = (image) => {
-        navigation.navigate("Zdjecie", {image: image,});
+        navigation.navigate("Zdjecie", {image: image, item: item});
     }
 
     const [newItem, setNewItem] = useState(item)

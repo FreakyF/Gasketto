@@ -6,14 +6,16 @@ import React, {useEffect, useState} from "react";
 import {LightSensor} from "expo-sensors";
 
 export default function PodgladZdjecia({route, navigation}) {
-    const {image} = route.params;
+    const {image, item} = route.params;
     const powrot = () => {
         navigation.goBack();
     }
 
     const usun = () => {
+        item.Zdjecia = item.Zdjecia.filter(z => z !== image);
         navigation.goBack();
     }
+
     const [illuminance, setilluminance] = useState(26);
     const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
     LightSensor.addListener(data => {
