@@ -21,9 +21,10 @@ export default function DanePojazduEkran({route, navigation}) {
             "VIN": vin,
             "Rok": rok,
             "Stan": "",
-            "Zdjecia" : [],
+            "Zdjecia": [],
+            "Opis": item.Opis,
         };
-        navigation.navigate("Stan pojazdu",{item: testjson});
+        navigation.navigate("Stan pojazdu", {item: testjson});
     }
 
     const anuluj = () => {
@@ -39,8 +40,10 @@ export default function DanePojazduEkran({route, navigation}) {
     const [rok, setRok] = useState("");
 
     const [illuminance, setilluminance] = useState(26);
-    const aktywnystyl = illuminance > 25 ? styles : Darkstyles ;
-    LightSensor.addListener(data => { setilluminance(data.illuminance)})
+    const aktywnystyl = illuminance > 25 ? styles : Darkstyles;
+    LightSensor.addListener(data => {
+        setilluminance(data.illuminance)
+    })
 
     return (
         <View style={aktywnystyl.container}>

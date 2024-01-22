@@ -72,7 +72,7 @@ function LogowanieEkran({navigation}) {
     storeData("wizyty");
 
     const validateLogin = (login, password) => {
-        axios.get("http://192.168.137.1:3004/logowanie").then(res => {
+        axios.get("http://192.168.0.133:3004/logowanie").then(res => {
             res.data.forEach(dane => {
                 if (login === dane.login && password === dane.haslo) {
                     setWarning(false);
