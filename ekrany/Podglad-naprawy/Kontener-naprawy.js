@@ -2,8 +2,20 @@ import React, {useEffect, useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {LightSensor} from "expo-sensors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
 
 export default function KontenerNaprawy({navigation, item, id}) {
+
+    const zakaczNaprawe = (stan) => {
+        axios.post("http://192.168.0.133:3004/naprawy", {
+            "naprawa_id": id,
+            "usterka_id": item.id,
+            "stan": stan,
+        }).then(res => {
+            console.log(res);
+            usunNaprawe().then(r => console.log(r)).catch(e => console.log(e));
+        }).then(err => console.log(err));
+    }
 
     const usunNaprawe = async () => {
         try {
@@ -30,11 +42,13 @@ export default function KontenerNaprawy({navigation, item, id}) {
             <Text style={aktywnystyl.description}>{item.opis}</Text>
             <Text style={aktywnystyl.doneText}>Czy wykonano:</Text>
             <View style={aktywnystyl.buttonContainer}>
-                <TouchableOpacity style={aktywnystyl.buttonMid} activeOpacity={0.7} onPress={() => usunNaprawe()}>
+                <TouchableOpacity style={aktywnystyl.buttonMid} activeOpacity={0.7}
+                                  onPress={() => zakaczNaprawe("nie")}>
                     <Text style={aktywnystyl.buttonMidText}>Nie</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7} onPress={() => usunNaprawe()}>
+                <TouchableOpacity style={styles.buttonRight} activeOpacity={0.7}
+                                  onPress={() => zakaczNaprawe("tak")}>
                     <Text style={styles.buttonRightText}>Tak</Text>
                 </TouchableOpacity>
             </View>

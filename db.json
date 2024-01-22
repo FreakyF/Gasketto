@@ -1,6 +1,26 @@
 {
   "logowanie": [
-    {"login": "mechanik", "haslo": "gragitarami"},
-    {"login": "admin", "haslo": "admin"}
+    {
+      "login": "mechanik",
+      "haslo": "gragitarami"
+    },
+    {
+      "login": "admin",
+      "haslo": "admin"
+    }
+  ],
+  "naprawy": [
+    {
+      "id": "e488",
+      "naprawa_id": 1,
+      "usterka_id": 0,
+      "stan": "tak"
+    },
+    {
+      "id": "048e",
+      "naprawa_id": 3,
+      "usterka_id": 0,
+      "stan": "tak"
+    }
   ]
 }

@@ -69,7 +69,7 @@ function LogowanieEkran({navigation}) {
         }
     }
 
-    storeData("wizyty");
+    // storeData("wizyty");
 
     const validateLogin = (login, password) => {
         axios.get("http://192.168.0.133:3004/logowanie").then(res => {
