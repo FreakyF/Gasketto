@@ -1,4 +1,4 @@
-# 🏦 Gasketto
+# 🔧 Gasketto
 
 Workshop‑focused, transparent repair documentation platform with before‑and‑after imagery.
 
