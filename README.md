@@ -1,24 +1,52 @@
-# 🔧 Gasketto
+# Gasketto | React Native Automotive Workshop Assistant
 
-Workshop‑focused, transparent repair documentation platform with before‑and‑after imagery.
+A specialized mobile utility designed for automotive technicians to facilitate vehicle intake documentation, service workflow tracking, and high-fidelity photographic evidence collection.
 
-## 📌 Features
+## 📺 Demo & Visuals
+*Visual documentation of the workshop intake flow.*
 
-📌 _Coming soon_
+🚧 *Coming Soon*
 
-## 👀 Demo
+## 🏗️ Architecture & Context
+*High-level system design and mobile execution model.*
 
-👀 _Coming soon_
+* **Objective:** Creation of a lightweight, offline-capable tool for mechanics to digitize the repair documentation process directly on the workshop floor.
+* **Architecture Pattern:** Component-Based Architecture utilizing a decentralized state model managed via React Navigation’s stack persistence.
+* **Data Flow:** User Input -> Component Local State -> Navigation Parameter Passing -> Asynchronous Persistence (`AsyncStorage`).
 
-## 🚀 How to Run
+## ⚖️ Design Decisions & Trade-offs
+*Technical justifications for MVP-scoped engineering choices.*
 
-### Prerequisites
+* **State Management: Ephemeral Navigation State**
+    * **Context:** Requirement for a lightweight state transition model without the overhead of a centralized store for a linear workflow.
+    * **Decision:** Utilization of Navigation Parameters combined with `AsyncStorage` for session persistence.
+    * **Rationale:** Maximizes development velocity for a strictly sequential business logic (Intake -> Repair -> Summary) where cross-tree state sharing is minimal.
+    * **Trade-off:** Accepted increased coupling between screens and higher difficulty in global state observability in exchange for reduced boilerplate and faster time-to-market.
 
-🚀 _Coming soon_
+* **UX: Hardware-Reactive Adaptive Theming**
+    * **Context:** Variability in workshop lighting conditions requiring instant UI adaptability for readability.
+    * **Decision:** Per-component ambient light sensor integration for granular style adjustments.
+    * **Rationale:** Exploration of direct hardware-to-UI binding to allow individual screen elements to react independently to lighting shifts.
+    * **Trade-off:** Acknowledged higher CPU/battery consumption due to multiple sensor listeners, prioritized over a centralized Context-based provider to test component-level reactive isolation.
 
-### 🔢 Steps
+## 🧠 Engineering Challenges
+*Analysis of signal processing and hardware integration.*
 
-🔢 _Coming soon_
+* **Challenge: Asynchronous Sensor Signal Hysteresis**
+    * **Problem:** Rapid fluctuations in ambient light sensor data (signal noise) caused "UI flickering" when the device was near the luminosity threshold, leading to a degraded user experience.
+    * **Implementation:** Developed a debouncing logic layer and threshold-based gating within the render cycle. The implementation enforces a minimum 500ms stability window before triggering a theme transition.
+    * **Outcome:** Achievement of smooth UI transitions and elimination of visual jitter, ensuring interface stability in environments with inconsistent artificial lighting.
+
+## 🛠️ Tech Stack & Ecosystem
+* **Core:** React Native (0.7x), Expo
+* **Navigation:** React Navigation (Stack & Drawer)
+* **Persistence:** AsyncStorage (Key-Value persistence for JSON-serialized manifests)
+* **Hardware API:** Expo Sensors (Ambient Light Sensor)
+
+## 🧪 Quality & Standards
+* **Testing:** Exploratory testing conducted via Expo Go on physical Android/iOS devices to validate hardware sensor responsiveness.
+* **Standards:** Adherence to a modular UI directory structure to promote component reusability across different service modules.
+* **Observability:** Implementation of structured console auditing to track state transitions through the navigation stack.
 
 ## 🙋‍♂️ Authors
 
