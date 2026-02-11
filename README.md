@@ -3,7 +3,7 @@
 A specialized mobile utility designed for automotive technicians to facilitate vehicle intake documentation, service workflow tracking, and high-fidelity photographic evidence collection.
 
 ## 📺 Demo & Visuals
-*Visual documentation of the workshop intake flow.*
+*Visual representation of the system in operation.*
 
 🚧 *Coming Soon*
 
