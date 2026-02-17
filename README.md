@@ -5,7 +5,24 @@ A specialized mobile utility designed for automotive technicians to facilitate v
 ## 📺 Demo & Visuals
 *Visual representation of the system in operation.*
 
-🚧 *Coming Soon*
+### 🔐 Authentication & Access
+*Secure entry point for authorized automotive technicians.*
+
+* **Login:** ![Login](/docs/screenshots/Login.png)
+
+### 📋 Service Workflow & Scheduling
+*Management of daily appointments and localized client data visualization.*
+
+* **Upcoming Visits:** ![Upcoming Visits](/docs/screenshots/Upcoming_Visits.png)
+* **Visit Manifest:** ![Visit Details](/docs/screenshots/Visit_Details.png)
+* **Service Confirmation:** ![Service Confirmation](/docs/screenshots/Service_Confirmation.png)
+
+### 🚗 Vehicle Intake & Documentation
+*Digitalized capture of vehicle specifications and high-fidelity photographic evidence.*
+
+* **Vehicle Data Entry:** ![Vehicle Data](/docs/screenshots/Vehicle_Data.png)
+* **Condition Assessment:** ![Condition Assessment](/docs/screenshots/Condition_Assessment.png)
+* **Evidence Collection:** ![Evidence Collection](/docs/screenshots/Evidence_Collection.png)
 
 ## 🏗️ Architecture & Context
 *High-level system design and mobile execution model.*
