@@ -26,6 +26,12 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "expo": {
+      "androidNavigationBar": {
+        "visible": "sticky-immersive",
+        "barStyle": "light-content"
+      }
+    },
     "plugins": [
       [
         "expo-camera",

@@ -1,26 +1,40 @@
 {
-  "logowanie": [
+  "auth": [
     {
-      "login": "mechanik",
-      "haslo": "gragitarami"
+      "id": "1",
+      "username": "mechanic",
+      "password": "mechanic"
     },
     {
-      "login": "admin",
-      "haslo": "admin"
+      "id": "2",
+      "username": "admin",
+      "password": "admin"
     }
   ],
-  "naprawy": [
+  "repairs": [
     {
       "id": "e488",
-      "naprawa_id": 1,
-      "usterka_id": 0,
-      "stan": "tak"
+      "repair_id": 1,
+      "issue_id": 0,
+      "status": "completed"
     },
     {
       "id": "048e",
-      "naprawa_id": 3,
-      "usterka_id": 0,
-      "stan": "tak"
+      "repair_id": 3,
+      "issue_id": 0,
+      "status": "completed"
+    },
+    {
+      "id": "0137",
+      "repair_id": 101,
+      "task_id": 0,
+      "status": "yes"
+    },
+    {
+      "id": "6680",
+      "repair_id": 101,
+      "task_id": 0,
+      "status": "no"
     }
   ]
 }
