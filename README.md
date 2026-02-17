@@ -5,24 +5,40 @@ A specialized mobile utility designed for automotive technicians to facilitate v
 ## 📺 Demo & Visuals
 *Visual representation of the system in operation.*
 
-### 🔐 Authentication & Access
-*Secure entry point for authorized automotive technicians.*
+### 🔐 Authentication & Workflow Scheduling
+*Technician identity verification and daily appointment prioritization.*
 
-* **Login:** ![Login](/docs/screenshots/Login.png)
+* **System Entry Point:**
 
-### 📋 Service Workflow & Scheduling
-*Management of daily appointments and localized client data visualization.*
+![Login](/docs/screenshots/Login.png)
 
-* **Upcoming Visits:** ![Upcoming Visits](/docs/screenshots/Upcoming_Visits.png)
-* **Visit Manifest:** ![Visit Details](/docs/screenshots/Visit_Details.png)
-* **Service Confirmation:** ![Service Confirmation](/docs/screenshots/Service_Confirmation.png)
+* **Service Queue & Scheduling:**
 
-### 🚗 Vehicle Intake & Documentation
-*Digitalized capture of vehicle specifications and high-fidelity photographic evidence.*
+![Upcoming Visits](/docs/screenshots/Upcoming_Visits.png)
 
-* **Vehicle Data Entry:** ![Vehicle Data](/docs/screenshots/Vehicle_Data.png)
-* **Condition Assessment:** ![Condition Assessment](/docs/screenshots/Condition_Assessment.png)
-* **Evidence Collection:** ![Evidence Collection](/docs/screenshots/Evidence_Collection.png)
+### 📋 Client Manifest & Intake Diagnostics
+*Localized data retrieval and preliminary repair job initialization.*
+
+* **Visit Manifest & Client Context:**
+
+![Visit Details](/docs/screenshots/Visit_Details.png)
+
+* **Vehicle Specification Ingestion:**
+
+![Vehicle Data](/docs/screenshots/Vehicle_Data.png)
+
+### 🚗 Repair Verification & Photographic Documentation
+*State-based repair status updates and high-fidelity evidence collection for service validation.*
+
+* **Repair Logic Verification:**
+
+![Service Confirmation](/docs/screenshots/Service_Confirmation.png)
+
+* **Physical State Assessment & Evidence Collection:**
+
+![Condition Assessment](/docs/screenshots/Condition_Assessment.png)
+
+![Evidence Collection](/docs/screenshots/Evidence_Collection.png)
 
 ## 🏗️ Architecture & Context
 *High-level system design and mobile execution model.*
