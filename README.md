@@ -1,4 +1,4 @@
-# Gasketto | React Native Automotive Workshop Assistant
+# Gasketto | Automotive Workshop Assistant
 
 A specialized mobile utility designed for automotive technicians to facilitate vehicle intake documentation, service workflow tracking, and high-fidelity photographic evidence collection.
 
